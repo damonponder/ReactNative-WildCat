@@ -23,10 +23,10 @@ class SignIn extends React.Component {
 
     axios
       .post(
-        'http://localhost:8080/api/auth/signin',
+        'http://10.0.2.2:8080/api/auth/signin',
 
         {
-          Username: this.state.Username,
+          username: this.state.username,
           password: this.state.password,
         },
         options,
@@ -35,8 +35,8 @@ class SignIn extends React.Component {
       .then((json) => {
         console.log(json);
         this.props.actions.add(
-          json.token,
-          this.state.Username,
+          json.accessToken,
+          this.state.username,
           json.roles,
           json.success,
         );
@@ -65,8 +65,8 @@ class SignIn extends React.Component {
           <TextInput
             placeholder="Enter Username"
             style={styles.inputStyle}
-            value={this.state.Username}
-            onChangeText={(emailText) => this.setState({Username: emailText})}
+            value={this.state.username}
+            onChangeText={(emailText) => this.setState({username: emailText})}
           />
           <TextInput
             secureTextEntry={true}

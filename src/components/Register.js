@@ -26,7 +26,7 @@ handleSignUp = () => {
 
   axios
     .post(
-      'http://localhost:8080/api/auth/signup',
+      'http://10.0.2.2:8080/api/auth/signup',
 
       {
         firstname: this.state.firstname,
@@ -35,7 +35,7 @@ handleSignUp = () => {
         email: this.state.email,
         password: this.state.password
       },
-      options,
+      options
     )
     .then((response) => response.data)
     .then((json) => {
