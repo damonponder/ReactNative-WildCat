@@ -15,15 +15,16 @@ import {Provider} from 'react-redux';
 import store from './src/redux/store';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import SignIn from './src/components/SignIn';
-import {Dashboard} from './src/components/Dashboard';
+import Dashboard from './src/components/Dashboard';
 import {Register} from './src/components/Register';
-
+import ObservationInfo from './src/components/ObservationInfo';
 function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
+      <Text style={{color: 'yellow'}}>WildCat Safety Tools - Safety Firts</Text>
       <Button
+      style={{backgroundColor: 'yellow'}}
         title="Get Started >"
         onPress={() => navigation.navigate('SignIn')}
       />
@@ -44,6 +45,8 @@ const App: () => React$Node = () => {
           <Stack.Screen name="Register" component={Register} />
 
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="ObservationInfo" component={ObservationInfo} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
@@ -52,14 +55,14 @@ const App: () => React$Node = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: 'black',
   },
   engine: {
     position: 'absolute',
     right: 0,
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: 'black',
   },
   sectionContainer: {
     marginTop: 32,

@@ -1,18 +1,33 @@
 import React from 'react';
-import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView,Button } from 'react-native';
+// import Constants from 'expo-constants';
 
-export class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
+export default class Dashboard extends React.Component {
   render() {
-    return (
-      <View>
-        <Text>Dashboard</Text>
-      </View>
-    );
-  }
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.text}>
+        </Text>
+        <Button title={'Observable'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // marginTop: Constants.statusBarHeight,
+  },
+
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 42,
+  },
+});
+
