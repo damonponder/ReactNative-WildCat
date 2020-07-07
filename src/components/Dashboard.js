@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView,Button } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, Button } from 'react-native';
 // import Constants from 'expo-constants';
 
 export default class Dashboard extends React.Component {
@@ -9,7 +9,7 @@ export default class Dashboard extends React.Component {
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
         </Text>
-        <Button title={'Observable'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
+        <Button title={'Observables'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: 'pink',
+    backgroundColor: 'black',
     marginHorizontal: 20,
   },
   text: {

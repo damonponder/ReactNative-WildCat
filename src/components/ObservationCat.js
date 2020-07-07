@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
 // import Constants from 'expo-constants';
 
-export default class Dashboard extends React.Component {
+export default class ObservatonCategory extends React.Component {
     constructor(props){
         super(props)
 
@@ -17,8 +17,8 @@ export default class Dashboard extends React.Component {
     }
 };
 
-handleObservableInfo = () => {
-    console.log('handling observation info');
+handleSignUp = () => {
+    console.log('handling registration');
     console.log(this.state)
     const options = {
       headers: {'Content-Type': 'application/json'},
@@ -55,7 +55,7 @@ handleObservableInfo = () => {
           this.props.verify.jwt.token &&
           this.props.verify.jwt.isAuthenticated
         ) {
-          this.props.navigation.navigate('ObservationCat');
+          this.props.navigation.navigate('Dashboard');
         }
       })
       .catch((error) => {
@@ -74,7 +74,7 @@ handleObservableInfo = () => {
         <TextInput style={styles.inputStyle}
         
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate}}></Button>
+        <Button title={'Next'} onPress={() => {this.storeAndNavigate}}></Button>
       </ScrollView>
     </SafeAreaView>
   );
@@ -86,7 +86,7 @@ storeAndNavigate(){
         submittedBy=this.state.submittedBy
       );
     //navigate
-    this.props.navigation.navigate('ObservableCat')
+    this.props.navigation.navigate('Dashboard')
 }
 }
 
@@ -112,4 +112,3 @@ const styles = StyleSheet.create({
     fontSize: 42,
   },
 });
-

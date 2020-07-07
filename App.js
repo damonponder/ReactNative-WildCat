@@ -18,6 +18,9 @@ import SignIn from './src/components/SignIn';
 import Dashboard from './src/components/Dashboard';
 import {Register} from './src/components/Register';
 import ObservationInfo from './src/components/ObservationInfo';
+import ObservationCat from './src/components/ObservationCat';
+
+
 function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
@@ -46,6 +49,7 @@ const App: () => React$Node = () => {
 
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="ObservationInfo" component={ObservationInfo} />
+          <Stack.Screen name="ObservationCat" component={ObservationCat} />
 
         </Stack.Navigator>
       </NavigationContainer>
