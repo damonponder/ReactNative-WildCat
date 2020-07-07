@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
 // import Constants from 'expo-constants';
 
-export default class Dashboard extends React.Component {
+export default class ObservationInfo extends React.Component {
     constructor(props){
         super(props)
 
@@ -74,6 +74,31 @@ handleObservableInfo = () => {
         <TextInput style={styles.inputStyle}
         
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput>
+         <Text style={styles.text}>
+         Location or Area
+        </Text>
+        <TextInput style={styles.inputStyle}
+        
+        onChangeText={(locationOrArea) => this.setState({locationOrArea: locationOrArea})}></TextInput>
+        <Text style={styles.text}>
+         Observation Date
+        </Text>
+        <TextInput style={styles.inputStyle}
+        
+        onChangeText={(observationDate) => this.setState({observationDate: observationDate})}></TextInput>
+        <Text style={styles.text}>
+         Department
+        </Text>
+        <TextInput style={styles.inputStyle}
+        
+        onChangeText={(department) => this.setState({department: department})}></TextInput>
+        <Text style={styles.text}>
+         Responsible Supervisor
+        </Text>
+        <TextInput style={styles.inputStyle}
+        
+        onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
+        <Text>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate}}></Button>
       </ScrollView>
     </SafeAreaView>
