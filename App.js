@@ -18,7 +18,22 @@ import SignIn from './src/components/SignIn';
 import Dashboard from './src/components/Dashboard';
 import {Register} from './src/components/Register';
 import ObservationInfo from './src/components/ObservationInfo';
-import ObservationCat from './src/components/ObservationCat';
+import ObservationType from './src/components/ObservationType';
+import ObservationCategory from './src/components/ObservationCategory';
+import BodyPosition from './src/components/BodyPosition';
+import EnvironmentalIssue from './src/components/EnvironmentalIssue';
+import Health from './src/components/Health';
+import ProcedureandStandars from './src/components/ProceduresandStandards';
+import ToolsandEquipment from './src/components/ToolsandEquipment';
+import QualityRelated from './src/components/QualityRelated';
+import UseofPPE from './src/components/UseofPPE';
+import WorkingConditions from './src/components/WorkingConditions';
+import Submit from './src/components/Submit';
+
+
+
+
+
 
 
 function HomeScreen({navigation}) {
@@ -49,7 +64,27 @@ const App: () => React$Node = () => {
 
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="ObservationInfo" component={ObservationInfo} />
-          <Stack.Screen name="ObservationCat" component={ObservationCat} />
+          <Stack.Screen name="ObservationType" component={ObservationType} />
+          <Stack.Screen name="ObservationCategory" component={ObservationCategory} />
+          <Stack.Screen name="BodyPosition" component={BodyPosition} />
+          <Stack.Screen name="EnvironmentalIssue" component={EnvironmentalIssue} />
+          <Stack.Screen name="Health" component={Health} />
+          <Stack.Screen name="ProceduresandStandards" component={ProcedureandStandars} />
+          <Stack.Screen name="ToolsandEquipment" component={ToolsandEquipment} />
+          <Stack.Screen name="QualityRelated" component={QualityRelated} />
+          <Stack.Screen name="UseofPPE" component={UseofPPE} />
+          <Stack.Screen name="WorkingConditions" component={WorkingConditions} />
+          <Stack.Screen name="Submit" component={Submit} />
+
+
+
+
+
+
+
+
+
+
 
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,20 +1,26 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import {bindActionCreators} from 'redux';
+import * as formActions from '../redux/form/action';
+import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
 // import Constants from 'expo-constants';
+import DatePicker from 'react-native-datepicker'
 
-export default class ObservationInfo extends React.Component {
+
+
+ class ObservationInfo extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
                 submittedBy:null,
                 locationOrArea:null,
-                observationDate:null,
                 department:null,
-                responsibleSupervisor:null
+                responsibleSupervisor:null,
+                date: new Date()
             
     }
+    this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
 handleObservableInfo = () => {
@@ -43,9 +49,9 @@ handleObservableInfo = () => {
         this.props.actions.add(
           this.state.submittedBy,
           this.state.locationOrArea,
-          this.state.observationDate,
           this.state.department,
           this.state.responsibleSupervisor,
+          this.state.date,
           json.roles,
           json.success,
         );
@@ -55,7 +61,7 @@ handleObservableInfo = () => {
           this.props.verify.jwt.token &&
           this.props.verify.jwt.isAuthenticated
         ) {
-          this.props.navigation.navigate('ObservationCat');
+          this.props.navigation.navigate('ObservationType');
         }
       })
       .catch((error) => {
@@ -65,6 +71,9 @@ handleObservableInfo = () => {
   
   
   render() {
+      
+    const {date} = this.state;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -80,12 +89,34 @@ handleObservableInfo = () => {
         <TextInput style={styles.inputStyle}
         
         onChangeText={(locationOrArea) => this.setState({locationOrArea: locationOrArea})}></TextInput>
-        <Text style={styles.text}>
-         Observation Date
-        </Text>
-        <TextInput style={styles.inputStyle}
         
-        onChangeText={(observationDate) => this.setState({observationDate: observationDate})}></TextInput>
+        <Text style={styles.text}>Observation Date</Text>
+        
+      <DatePicker
+        style={{width: 200}}
+        date={this.state.date}
+        mode="date"
+        placeholder="select date"
+        format="YYYY-MM-DD"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0
+          },
+          dateInput: {
+            marginLeft: 36
+          }
+          // ... You can check the source to find the other keys.
+        }}
+        onChange={ (date) => {
+            return this.setState({ date: date });
+        } } 
+
+        />        
         <Text style={styles.text}>
          Department
         </Text>
@@ -99,7 +130,7 @@ handleObservableInfo = () => {
         
         onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
         <Text>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate}}></Button>
+        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
     </SafeAreaView>
   );
@@ -107,11 +138,16 @@ handleObservableInfo = () => {
 
 storeAndNavigate(){
     //store
-    this.props.actions.add(
-        submittedBy=this.state.submittedBy
+    console.log('this.prop',this.props)
+    this.props.actions.addInfo(
+       this.state.submittedBy,
+       this.state.locationOrArea,
+          this.state.observationDate,
+          this.state.department,
+          this.state.responsibleSupervisor
       );
     //navigate
-    this.props.navigation.navigate('ObservableCat')
+    this.props.navigation.navigate('ObservationType')
 }
 }
 
@@ -134,7 +170,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
-    fontSize: 42,
+    fontSize: 14,
+    color: 'yellow'
   },
 });
 
+const mapStateToProps = (state) => ({
+    verify: state,
+  });
+
+  
+  const ActionCreators = Object.assign({}, formActions);
+  
+  const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(ObservationInfo);

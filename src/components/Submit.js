@@ -1,24 +1,30 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import {bindActionCreators} from 'redux';
+import * as formActions from '../redux/form/action';
+import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
 // import Constants from 'expo-constants';
+import DatePicker from 'react-native-datepicker'
 
-export default class ObservatonCategory extends React.Component {
+
+
+ class Submit extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
                 submittedBy:null,
                 locationOrArea:null,
-                observationDate:null,
                 department:null,
-                responsibleSupervisor:null
+                responsibleSupervisor:null,
+                date: new Date()
             
     }
+    this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
-handleSignUp = () => {
-    console.log('handling registration');
+handleObservableInfo = () => {
+    console.log('handling observation info');
     console.log(this.state)
     const options = {
       headers: {'Content-Type': 'application/json'},
@@ -43,9 +49,9 @@ handleSignUp = () => {
         this.props.actions.add(
           this.state.submittedBy,
           this.state.locationOrArea,
-          this.state.observationDate,
           this.state.department,
           this.state.responsibleSupervisor,
+          this.state.date,
           json.roles,
           json.success,
         );
@@ -55,7 +61,7 @@ handleSignUp = () => {
           this.props.verify.jwt.token &&
           this.props.verify.jwt.isAuthenticated
         ) {
-          this.props.navigation.navigate('Dashboard');
+          this.props.navigation.navigate('ObservationType');
         }
       })
       .catch((error) => {
@@ -65,16 +71,19 @@ handleSignUp = () => {
   
   
   render() {
+      
+    const {date} = this.state;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
-         Submitted By
+         Form Submital
         </Text>
         <TextInput style={styles.inputStyle}
-        
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput>
-        <Button title={'Next'} onPress={() => {this.storeAndNavigate}}></Button>
+        <Text>To Proceed to the next Screen</Text>
+        <Button title={'Submit Form'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
     </SafeAreaView>
   );
@@ -82,8 +91,13 @@ handleSignUp = () => {
 
 storeAndNavigate(){
     //store
-    this.props.actions.add(
-        submittedBy=this.state.submittedBy
+    console.log('this.prop',this.props)
+    this.props.actions.addInfo(
+       this.state.submittedBy,
+       this.state.locationOrArea,
+          this.state.observationDate,
+          this.state.department,
+          this.state.responsibleSupervisor
       );
     //navigate
     this.props.navigation.navigate('Dashboard')
@@ -109,6 +123,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
-    fontSize: 42,
+    fontSize: 14,
+    color: 'yellow'
   },
 });
+
+const mapStateToProps = (state) => ({
+    verify: state,
+  });
+
+  
+  const ActionCreators = Object.assign({}, formActions);
+  
+  const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Submit);
