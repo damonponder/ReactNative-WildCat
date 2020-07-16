@@ -39,10 +39,10 @@ import Submit from './src/components/Submit';
 function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
-      <Text style={{color: 'yellow'}}>WildCat Safety Tools - Safety Firts</Text>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
+      <Text style={{color: 'black',fontSize: 18}}>WildCat Safety Tools - Safety First</Text>
       <Button
-      style={{backgroundColor: 'yellow'}}
+      style={{backgroundColor: 'white'}}
         title="Get Started >"
         onPress={() => navigation.navigate('SignIn')}
       />

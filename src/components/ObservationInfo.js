@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert } from 'react-native';
 // import Constants from 'expo-constants';
 import DatePicker from 'react-native-datepicker'
 
@@ -23,51 +23,56 @@ import DatePicker from 'react-native-datepicker'
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
-handleObservableInfo = () => {
-    console.log('handling observation info');
-    console.log(this.state)
-    const options = {
-      headers: {'Content-Type': 'application/json'},
-    };
+// handleObservableInfo = () => {
+//     console.log('handling observation info');
+//     console.log(this.state)
+//     const options = {
+//       headers: {'Content-Type': 'application/json'},
+//     };
   
-    axios
-      .post(
-        'http://10.0.2.2:8080/api/auth/observables',
+//     axios
+//       .post(
+//         'http://10.0.2.2:8080/api/auth/observables',
   
-        {
-          submittedBy: this.state.submittedBy,
-          locationOrArea: this.state.locationOrArea,
-          observationDate: this.state.observationDate,
-          department: this.state.department,
-          responsibleSupervisor: this.state.responsibleSupervisor
-        },
-        options
-      )
-      .then((response) => response.data)
-      .then((json) => {
-        console.log(json);
-        this.props.actions.add(
-          this.state.submittedBy,
-          this.state.locationOrArea,
-          this.state.department,
-          this.state.responsibleSupervisor,
-          this.state.date,
-          json.roles,
-          json.success,
-        );
-      })
-      .then(() => {
-        if (
-          this.props.verify.jwt.token &&
-          this.props.verify.jwt.isAuthenticated
-        ) {
-          this.props.navigation.navigate('ObservationType');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+//         {
+//           submittedBy: this.state.submittedBy,
+//           locationOrArea: this.state.locationOrArea,
+//           observationDate: this.state.observationDate,
+//           department: this.state.department,
+//           responsibleSupervisor: this.state.responsibleSupervisor
+//         },
+//         options
+//       )
+//       .then((response) => response.data)
+//       .then((json) => {
+//         console.log(json);
+//         this.props.actions.add(
+//           this.state.submittedBy,
+//           this.state.locationOrArea,
+//           this.state.department,
+//           this.state.responsibleSupervisor,
+//           this.state.date,
+//           json.roles,
+//           json.success,
+//         );
+//       })
+//       .then(() => {
+//         if (
+        
+//             this.props.actions.submittedBy&&
+//             this.props.actions.locationOrArea&&
+//             this.props.actions.department&&
+//             this.props.actions.responsibleSupervisor&&
+//             this.props.actions.date
+          
+//         ) {
+//           this.props.navigation.navigate('ObservationType');
+//         }
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   };
   
   
   render() {
@@ -91,7 +96,7 @@ handleObservableInfo = () => {
         onChangeText={(locationOrArea) => this.setState({locationOrArea: locationOrArea})}></TextInput>
         
         <Text style={styles.text}>Observation Date</Text>
-        
+
       <DatePicker
         style={{width: 200}}
         date={this.state.date}
@@ -137,17 +142,26 @@ handleObservableInfo = () => {
 }
 
 storeAndNavigate(){
-    //store
-    console.log('this.prop',this.props)
-    this.props.actions.addInfo(
-       this.state.submittedBy,
-       this.state.locationOrArea,
-          this.state.observationDate,
-          this.state.department,
-          this.state.responsibleSupervisor
-      );
-    //navigate
-    this.props.navigation.navigate('ObservationType')
+    if(  this.state.submittedBy === null ||
+        this.state.locationOrArea === null ||
+           this.state.department === null ||
+           this.state.responsibleSupervisor === null ||
+           this.state.date === null ){
+            Alert.alert("Missing Fields","Please fill in all fields.")
+           }else{
+            this.props.actions.addInfo(
+                this.state.submittedBy,
+                this.state.locationOrArea,
+                this.state.date,
+                   this.state.department,
+                   this.state.responsibleSupervisor,
+                  
+               );
+             
+             this.props.navigation.navigate('ObservationType')
+           }
+   
+    
 }
 }
 
@@ -158,7 +172,8 @@ const styles = StyleSheet.create({
         height: 40,
         paddingHorizontal: 10,
         borderRadius: 50,
-        backgroundColor: 'yellow',
+        borderWidth: 1,
+        backgroundColor: 'white',
       },
   container: {
     flex: 1,
@@ -166,12 +181,12 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     marginHorizontal: 20,
   },
   text: {
     fontSize: 14,
-    color: 'yellow'
+    color: 'black'
   },
 });
 

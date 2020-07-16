@@ -28,7 +28,7 @@ class SignIn extends React.Component {
         {
           username: this.state.username,
           password: this.state.password,
-          
+
         },
         options,
       )
@@ -104,7 +104,7 @@ class SignIn extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,

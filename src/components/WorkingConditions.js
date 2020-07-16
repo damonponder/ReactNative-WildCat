@@ -2,61 +2,109 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
-
-
- class ObservationCategory extends React.Component {
+ class WorkingConditions extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                BodyPosition:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                BuildingandStructure:null,
+                ElectricalHazard:null,
+                ElevatedHeights:null,
+                Housekeeping:null,
+                Lighting:null,
+                WalkingSurfaces:null,
+                WorkingSurfaces:null
+                
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
+
   
   render() {
-    var radio_props = [
-        {label: 'Body Position', value:'Body Position'},
-        {label: 'Environmental Issue', value:'Environmental Issue' },
-        {label: 'Health', value: 'Health' },
-        {label: 'Procedures and Standards', value: 'Procedures and Standards' },
-        {label: 'Qaulity Related', value: 'Quality Related'  },
-        {label: 'Tools and Equipment', value: 'Tools and Equipment'  },
-        {label: 'Use of PPE', value: 'Use of PPE'  },
-        {label: 'Working Conditions', value: 'Working Conditions'  },
-        {label: 'Comment on Suggestion', value: 'Comment on Suggestion'  },
-        {label: 'Other', value: 'Other'}
-      ];
-
   
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Observation Category
+         Building/Structures
         </Text>
-        <RadioForm
-          radio_props={radio_props}
-          initial={""}
-          onPress={(value) => {this.setState({selectedType:value})}}
+        <CheckBox
+        value={this.state.BuildingandStructure}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({BuildingandStructure:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Electrical Hazard
+        </Text>
+        <CheckBox
+        value={this.state.ElectricalHazard}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({ElectricalHazard:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <Text style={styles.text}>
+         Elevated Heights
+         </Text>
+        <CheckBox
+        value={this.state.ElevatedHeights}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({ElevatedHeights:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Housekeeping
+        </Text>
+        <CheckBox
+        value={this.state.Housekeeping}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Housekeeping:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Lighting
+        </Text>
+        <CheckBox
+        value={this.state.Lighting}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Lighting:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Walking Surfaces
+        </Text>
+        <CheckBox
+        value={this.state.WalkingSurfaces}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({WalkingSurfaces:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Working Surfaces
+        </Text>
+        <CheckBox
+        value={this.state.WorkingSurfaces}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({WorkingSurfaces:value})}}
+        />
+        </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -65,13 +113,36 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 }
 
 storeAndNavigate(){
-    //store
+    
     console.log('this.props 2',this.props)
-    this.props.actions.addType(
-       this.state.selectedType
+    var workingConditionselections = []
+    if(this.state.BuildingandStructure===true){
+        workingConditionselections.push("Building and Structure")
+    }
+    if(this.state.ElectricalHazard===true){
+        workingConditionselections.push('Electrical Hazard')
+    }
+    if(this.state.ElevatedHeights===true){
+        workingConditionselections.push('Elevated Heights')
+    }
+    if(this.state.Housekeeping===true){
+        workingConditionselections.push('HouseKeeping')
+    }
+    if(this.state.Lighting===true){
+        workingConditionselections.push('Lighting')
+    }
+    if(this.state.WalkingSurfaces===true){
+        workingConditionselections.push('Walking Surfaces')
+    }
+    if(this.state.WorkingSurfaces===true){
+        workingConditionselections.push('Working Surfaces')
+    }
+    
+    this.props.actions.addWorkingConditionsCategories(
+      workingConditionselections
       );
     //navigate
-    this.props.navigation.navigate('ObservationCategory')
+    this.props.navigation.navigate('Submit')
 }
 }
 
@@ -112,4 +183,4 @@ const mapStateToProps = (state) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ObservationCategory);
+  export default connect(mapStateToProps, mapDispatchToProps)(WorkingConditions);

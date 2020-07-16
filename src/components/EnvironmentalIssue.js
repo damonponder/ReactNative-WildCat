@@ -2,61 +2,73 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
-
-
- class EnvironmentalIssue extends React.Component {
+ class environmentalIssue extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                BodyPosition:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                Air:null,
+                Ground:null,
+                Water:null,
+                Waiste:null
+                
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
+
   
   render() {
-    var radio_props = [
-        {label: 'Body Position', value:'Body Position'},
-        {label: 'Environmental Issue', value:'Environmental Issue' },
-        {label: 'Health', value: 'Health' },
-        {label: 'Procedures and Standards', value: 'Procedures and Standards' },
-        {label: 'Qaulity Related', value: 'Quality Related'  },
-        {label: 'Tools and Equipment', value: 'Tools and Equipment'  },
-        {label: 'Use of PPE', value: 'Use of PPE'  },
-        {label: 'Working Conditions', value: 'Working Conditions'  },
-        {label: 'Comment on Suggestion', value: 'Comment on Suggestion'  },
-        {label: 'Other', value: 'Other'}
-      ];
-
   
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Observation Category
+         Air
         </Text>
-        <RadioForm
-          radio_props={radio_props}
-          initial={""}
-          onPress={(value) => {this.setState({selectedType:value})}}
+        <CheckBox
+        value={this.state.Air}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Air:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Ground
+        </Text>
+        <CheckBox
+        value={this.state.Ground}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Ground:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <Text style={styles.text}>
+         Water
+         </Text>
+        <CheckBox
+        value={this.state.Water}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Water:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Waiste
+        </Text>
+        <CheckBox
+        value={this.state.Waiste}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Waiste:value})}}
+        />
+        </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -65,13 +77,27 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 }
 
 storeAndNavigate(){
-    //store
+  
     console.log('this.props 2',this.props)
-    this.props.actions.addType(
-       this.state.selectedType
+    var environmentalSelections = []
+    if(this.state.Air===true){
+        environmentalSelections.push("Air")
+    }
+    if(this.state.Ground===true){
+        environmentalSelections.push('Ground')
+    }
+    if(this.state.Water===true){
+        environmentalSelections.push('Water')
+    }
+    if(this.state.Waiste===true){
+        environmentalSelections.push('Waiste')
+    }
+    
+    this.props.actions.addEnvironmentalConditions(
+      environmentalSelections
       );
     //navigate
-    this.props.navigation.navigate('ObservationCategory')
+    this.props.navigation.navigate('Submit')
 }
 }
 
@@ -112,4 +138,4 @@ const mapStateToProps = (state) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });
   
-  export default connect(mapStateToProps, mapDispatchToProps)(EnvironmentalIssue);
+  export default connect(mapStateToProps, mapDispatchToProps)(environmentalIssue);

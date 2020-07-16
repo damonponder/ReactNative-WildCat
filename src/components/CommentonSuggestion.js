@@ -4,19 +4,21 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
- class Health extends React.Component {
+ class CommentonSuggestion extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                ColdTemps:null,
-                HotTemps:null,
-                Ingestion:null,
-                Inhalation:null,
-                Noise:null,
-                Radiation:null,
-                SkinContact:null,
-                
+                BodyPosition:null,
+                EnvironmentalIssue:null,
+                Health:null,
+                ProceduresandStandards:null,
+                QualityRelated:null,
+                ToolsandEquipment:null,
+                UseofPPE:null,
+                WorkingConditions:null,
+                CommentonSuggestion:null,
+                Other:null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
@@ -30,79 +32,101 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Cold Temps
+         Body Position
         </Text>
         <CheckBox
-        value={this.state.ColdTemps}
+        value={this.state.selectedType}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({ColdTemps:value})}}
+              this.setState({selectedType:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
            <Text style={styles.text}>
-         Hot Temps
+         Environmental Issue
         </Text>
         <CheckBox
-        value={this.state.HotTemps}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({HotTemps:value})}}
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Ingestion
+         Health
          </Text>
         <CheckBox
-        value={this.state.Ingestion}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({Ingestion:value})}}
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
            <Text style={styles.text}>
-         Inhalation
+         Procedures and Standards
         </Text>
         <CheckBox
-        value={this.state.Inhalation}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({Inhalation:value})}}
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
            <Text style={styles.text}>
-         Noise
+         Quality Related
         </Text>
         <CheckBox
-        value={this.state.Noise}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({Noise:value})}}
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
            <Text style={styles.text}>
-         Radiation
+         Tools and Equipment
         </Text>
         <CheckBox
-        value={this.state.Radiation}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({Radiation:value})}}
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
            <Text style={styles.text}>
-        Skin Contact
+         Use of PPE 
         </Text>
         <CheckBox
-        value={this.state.SkinContact}
+        value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({SkinContact:value})}}
+              this.setState({environmentalIssue:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Working Conditions
+        </Text>
+        <CheckBox
+        value={this.state.environmentalIssue}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({environmentalIssue:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Comment Suggestions 
+        </Text>
+        <CheckBox
+        value={this.state.environmentalIssue}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({environmentalIssue:value})}}
         />
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
@@ -113,33 +137,43 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 }
 
 storeAndNavigate(){
-   
+    //store
+   // if(this.state.selectedType===''){
+   //    Alert.alert('Missing Field','Please fill in all fields');
+   // }else{
+
+    //}
     console.log('this.props 2',this.props)
-    var healthSelections = []
-    if(this.state.ColdTemps===true){
-        healthSelections.push("Cold Temps")
+    var selections = []
+    if(this.state.environmentalIssue===true){
+        selections.push("Body Position")
     }
-    if(this.state.HotTemps===true){
-        healthSelections.push('Hot Temps')
+    if(this.state.selectedType===true){
+        selections.push('Environmental Issue')
     }
-    if(this.state.Ingestion===true){
-        healthSelections.push('Ingestion')
+    if(this.state.selectedType===true){
+        selections.push('Health')
     }
-    if(this.state.Inhalation===true){
-        healthSelections.push('Inhalation')
+    if(this.state.selectedType===true){
+        selections.push('ProceduresandStandards')
     }
-    if(this.state.Noise===true){
-        healthSelections.push('Noise')
+    if(this.state.selectedType===true){
+        selections.push('QualityRelated')
     }
-    if(this.state.Radiation===true){
-        healthSelections.push('Radiation')
+    if(this.state.selectedType===true){
+        selections.push('ToolsandEquipment')
     }
-    if(this.state.SkinContact===true){
-        healthSelections.push('Skin Contact')
+    if(this.state.selectedType===true){
+        selections.push('UseofPPE')
     }
-    
-    this.props.actions.addHealthCategories(
-      healthSelections
+    if(this.state.selectedType===true){
+        selections.push('WorkingConditions')
+    }
+    if(this.state.selectedType===true){
+        selections.push('CommentonSuggestions')
+    }
+    this.props.actions.addBodyPositions(
+      selections
       );
     //navigate
     this.props.navigation.navigate('Submit')
@@ -183,4 +217,4 @@ const mapStateToProps = (state) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Health);
+  export default connect(mapStateToProps, mapDispatchToProps)(CommentonSuggestion);

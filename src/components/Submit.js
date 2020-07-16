@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
-// import Constants from 'expo-constants';
-import DatePicker from 'react-native-datepicker'
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert } from 'react-native';
 
 
 
@@ -23,7 +21,7 @@ import DatePicker from 'react-native-datepicker'
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
-handleObservableInfo = () => {
+handleSubmit = () => {
     console.log('handling observation info');
     console.log(this.state)
     const options = {
@@ -35,7 +33,7 @@ handleObservableInfo = () => {
         'http://10.0.2.2:8080/api/auth/observables',
   
         {
-          submittedBy: this.state.submittedBy,
+          submittedBy: this.props.verify.form.submittedBy,
           locationOrArea: this.state.locationOrArea,
           observationDate: this.state.observationDate,
           department: this.state.department,
@@ -61,7 +59,7 @@ handleObservableInfo = () => {
           this.props.verify.jwt.token &&
           this.props.verify.jwt.isAuthenticated
         ) {
-          this.props.navigation.navigate('ObservationType');
+          this.props.navigation.navigate('Dashboard');
         }
       })
       .catch((error) => {
@@ -73,34 +71,48 @@ handleObservableInfo = () => {
   render() {
       
     const {date} = this.state;
+      const createAlertButton = () =>
+        Alert.alert(
+          "Submission Successful",
+          "Thank you for your Submission",
+          [
+            {
+              text: "Submit",
+              onPress: () => console.log("Submission Pressed"),
+              style: "cancel"
+            }
+          ],
+          { cancelable: false }
+        );
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
-         Form Submital
+         Final Form Submital
         </Text>
-        <TextInput style={styles.inputStyle}
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput>
-        <Text>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form'} onPress={() => {this.storeAndNavigate()}}></Button>
+        {/* <TextInput style={styles.inputStyle}
+        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
+        <Text>Please Verify your Final Submital of this Form</Text>
+        <Button title={'Submit Form'} onPress={createAlertButton}/>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 storeAndNavigate(){
+  console.log('form data: ',JSON.stringify(this.props.formData.form.useofPPECategories))
     //store
-    console.log('this.prop',this.props)
-    this.props.actions.addInfo(
-       this.state.submittedBy,
-       this.state.locationOrArea,
-          this.state.observationDate,
-          this.state.department,
-          this.state.responsibleSupervisor
-      );
+    //console.log('this.prop',this.props)
+   // this.props.actions.addInfo(
+     //  this.state.submittedBy,
+     //  this.state.locationOrArea,
+         // this.state.observationDate,
+         // this.state.department,
+         // this.state.responsibleSupervisor
+    //  );
     //navigate
-    this.props.navigation.navigate('Dashboard')
+   // this.props.navigation.navigate('Dashboard')
 }
 }
 
@@ -111,7 +123,7 @@ const styles = StyleSheet.create({
         height: 40,
         paddingHorizontal: 10,
         borderRadius: 50,
-        backgroundColor: 'yellow',
+        backgroundColor: 'white',
       },
   container: {
     flex: 1,
@@ -119,22 +131,24 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     marginHorizontal: 20,
   },
   text: {
     fontSize: 14,
-    color: 'yellow'
+    color: 'black'
   },
 });
 
+//======== GRAB STORED DATA FROM STATE, AVAILABLE IN this.props.formData.form.xxx.....
 const mapStateToProps = (state) => ({
-    verify: state,
+    formData: state,
   });
 
   
   const ActionCreators = Object.assign({}, formActions);
   
+  //======= PUT DATA IN REDUX STATE
   const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });

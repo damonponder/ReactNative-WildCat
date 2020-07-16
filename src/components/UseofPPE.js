@@ -2,61 +2,144 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
-
-
- class ObservationCategory extends React.Component {
+ class UseofPPE extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                BodyPosition:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                Clothing:null,
+                Body:null,
+                Eye:null,
+                Face:null,
+                Fall:null,
+                Foot:null,
+                Hand:null,
+                Head:null,
+                Hearing:null,
+                Respiratory:null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
+
   
   render() {
-    var radio_props = [
-        {label: 'Body Position', value:'Body Position'},
-        {label: 'Environmental Issue', value:'Environmental Issue' },
-        {label: 'Health', value: 'Health' },
-        {label: 'Procedures and Standards', value: 'Procedures and Standards' },
-        {label: 'Qaulity Related', value: 'Quality Related'  },
-        {label: 'Tools and Equipment', value: 'Tools and Equipment'  },
-        {label: 'Use of PPE', value: 'Use of PPE'  },
-        {label: 'Working Conditions', value: 'Working Conditions'  },
-        {label: 'Comment on Suggestion', value: 'Comment on Suggestion'  },
-        {label: 'Other', value: 'Other'}
-      ];
-
   
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Observation Category
+         Clothing
         </Text>
-        <RadioForm
-          radio_props={radio_props}
-          initial={""}
-          onPress={(value) => {this.setState({selectedType:value})}}
+        <CheckBox
+        value={this.state.Clothing}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Clothing:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Body
+        </Text>
+        <CheckBox
+        value={this.state.Body}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Body:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <Text style={styles.text}>
+         Eye
+         </Text>
+        <CheckBox
+        value={this.state.Eye}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Eye:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Face
+        </Text>
+        <CheckBox
+        value={this.state.Face}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Face:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Fall
+        </Text>
+        <CheckBox
+        value={this.state.Fall}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Fall:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Foot
+        </Text>
+        <CheckBox
+        value={this.state.Foot}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Foot:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Hand
+        </Text>
+        <CheckBox
+        value={this.state.Hand}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Hand:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Head
+        </Text>
+        <CheckBox
+        value={this.state.Head}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Head:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Hearing
+        </Text>
+        <CheckBox
+        value={this.state.Hearing}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Hearing:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Respiratory
+        </Text>
+        <CheckBox
+        value={this.state.Respiratory}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Respiratory:value})}}
+        />
+        </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -66,12 +149,48 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 
 storeAndNavigate(){
     //store
+   // if(this.state.selectedType===''){
+   //    Alert.alert('Missing Field','Please fill in all fields');
+   // }else{
+
+    //}
     console.log('this.props 2',this.props)
-    this.props.actions.addType(
-       this.state.selectedType
+    var useofPPESelections = []
+    if(this.state.Clothing===true){
+        useofPPESelections.push("Clothing")
+    }
+    if(this.state.Body===true){
+        useofPPESelections.push('Body')
+    }
+    if(this.state.Eye===true){
+        useofPPESelections.push('Eye')
+    }
+    if(this.state.Face===true){
+        useofPPESelections.push('Face')
+    }
+    if(this.state.Fall===true){
+        useofPPESelections.push('Fall')
+    }
+    if(this.state.Foot===true){
+        useofPPESelections.push('Foot')
+    }
+    if(this.state.Hand===true){
+        useofPPESelections.push('Hand')
+    }
+    if(this.state.Head===true){
+        useofPPESelections.push('Head')
+    }
+    if(this.state.Hearing===true){
+        useofPPESelections.push('Hearing')
+    }
+    if(this.state.Respiratory===true){
+        useofPPESelections.push('Respiratory')
+    }
+    this.props.actions.addUseofPPECategories(
+      useofPPESelections
       );
     //navigate
-    this.props.navigation.navigate('ObservationCategory')
+    this.props.navigation.navigate('Submit')
 }
 }
 
@@ -112,4 +231,4 @@ const mapStateToProps = (state) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ObservationCategory);
+  export default connect(mapStateToProps, mapDispatchToProps)(UseofPPE);

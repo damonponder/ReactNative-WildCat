@@ -2,61 +2,108 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
-
-
- class ObservationCategory extends React.Component {
+ class ProcedureandStandards extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                BodyPosition:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                Adequate:null,
+                NotAdequate:null,
+                Followed:null,
+                NotFollowed:null,
+                Known:null,
+                NotKnown:null,
+                NotinPlace:null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
+
   
   render() {
-    var radio_props = [
-        {label: 'Body Position', value:'Body Position'},
-        {label: 'Environmental Issue', value:'Environmental Issue' },
-        {label: 'Health', value: 'Health' },
-        {label: 'Procedures and Standards', value: 'Procedures and Standards' },
-        {label: 'Qaulity Related', value: 'Quality Related'  },
-        {label: 'Tools and Equipment', value: 'Tools and Equipment'  },
-        {label: 'Use of PPE', value: 'Use of PPE'  },
-        {label: 'Working Conditions', value: 'Working Conditions'  },
-        {label: 'Comment on Suggestion', value: 'Comment on Suggestion'  },
-        {label: 'Other', value: 'Other'}
-      ];
-
   
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <View style={{flex:1,flexDirection:'row'}}>
         <Text style={styles.text}>
-         Observation Category
+         Adequate
         </Text>
-        <RadioForm
-          radio_props={radio_props}
-          initial={""}
-          onPress={(value) => {this.setState({selectedType:value})}}
+        <CheckBox
+        value={this.state.Adequate}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Adequate:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Not Adequate
+        </Text>
+        <CheckBox
+        value={this.state.NotAdequate}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({NotAdequate:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <Text style={styles.text}>
+         Followed
+         </Text>
+        <CheckBox
+        value={this.state.Followed}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Followed:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Not Followed
+        </Text>
+        <CheckBox
+        value={this.state.NotFollowed}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({NotFollowed:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Known
+        </Text>
+        <CheckBox
+        value={this.state.Known}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Known:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Not Known
+        </Text>
+        <CheckBox
+        value={this.state.NotKnown}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({NotKnown:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Use of PPE 
+        </Text>
+        <CheckBox
+        value={this.state.NotinPlace}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({NotinPlace:value})}}
+        />
+        </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -65,13 +112,36 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 }
 
 storeAndNavigate(){
-    //store
+    
     console.log('this.props 2',this.props)
-    this.props.actions.addType(
-       this.state.selectedType
+    var procedureandStandardSelections = []
+    if(this.state.Adequate===true){
+        procedureandStandardSelections.push("Adequate")
+    }
+    if(this.state.NotAdequate===true){
+        procedureandStandardSelections.push('Not Adequate')
+    }
+    if(this.state.Followed===true){
+        procedureandStandardSelections.push('Followed')
+    }
+    if(this.state.NotFollowed===true){
+        procedureandStandardSelections.push('Not Followed')
+    }
+    if(this.state.Known===true){
+        procedureandStandardSelections.push('Known')
+    }
+    if(this.state.NotKnown===true){
+        procedureandStandardSelections.push('Not Known')
+    }
+    if(this.state.NotinPlace===true){
+        procedureandStandardSelections.push('Not in Place')
+    }
+    
+    this.props.actions.addProcedureAndStandardsCategories(
+      procedureandStandardSelections
       );
     //navigate
-    this.props.navigation.navigate('ObservationCategory')
+    this.props.navigation.navigate('Submit')
 }
 }
 
@@ -112,4 +182,4 @@ const mapStateToProps = (state) => ({
     actions: bindActionCreators(ActionCreators, dispatch),
   });
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ObservationCategory);
+  export default connect(mapStateToProps, mapDispatchToProps)(ProcedureandStandards);

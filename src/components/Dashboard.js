@@ -9,7 +9,7 @@ export default class Dashboard extends React.Component {
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
         </Text>
-        <Button title={'Observables'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
+        <Button title={'Observation Card'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     marginHorizontal: 20,
   },
   text: {

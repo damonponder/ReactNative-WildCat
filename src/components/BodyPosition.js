@@ -4,14 +4,12 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 
-
-
  class BodyPosition extends React.Component {
     constructor(props){
         super(props)
 
             this.state = {
-                BodyPosition:null,
+                BodyPositionCat:null,
                 EnvironmentalIssue:null,
                 Health:null,
                 ProceduresandStandards:null,
@@ -32,34 +30,107 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-          <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.BodyPositionCat}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({BodyPositionCat:value})}}
+        />
         <Text style={styles.text}>
          Body Position
         </Text>
-        <CheckBox
-         // check_props={check_props}
-        //  initial={""}
-        value={this.state.selectedType}
-          onValueChange={(value) => {
-              console.log('value: ', value)
-              this.setState({selectedType:value})}}
-        />
+      
         </View>
-           <Text style={styles.text}>
-         Environmental Issue
-        </Text>
+        <View style={{flex:1,flexDirection:'row'}}>
         <CheckBox
-         // check_props={check_props}
-        //  initial={""}
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+           <Text style={styles.text}>
+         Environmental Issue
+        </Text>
+       
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <Text style={styles.text}>
+         Health
+         </Text>
+        <CheckBox
+        value={this.state.Health}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Health:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Procedures and Standards
+        </Text>
+        <CheckBox
+        value={this.state.ProceduresandStandards}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({ProceduresandStandards:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Quality Related
+        </Text>
+        <CheckBox
+        value={this.state.QualityRelated}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({QualityRelated:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Tools and Equipment
+        </Text>
+        <CheckBox
+        value={this.state.ToolsandEquipment}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({ToolsandEquipment:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Use of PPE 
+        </Text>
+        <CheckBox
+        value={this.state.UseofPPE}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({UseofPPE:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Working Conditions
+        </Text>
+        <CheckBox
+        value={this.state.WorkingConditions}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({WorkingConditions:value})}}
+        />
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           <Text style={styles.text}>
+         Comment Suggestions 
+        </Text>
+        <CheckBox
+        value={this.state.CommentonSuggestion}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({CommentonSuggestion:value})}}
+        />
+        </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -68,22 +139,37 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 }
 
 storeAndNavigate(){
-    //store
-   // if(this.state.selectedType===''){
-   //    Alert.alert('Missing Field','Please fill in all fields');
-   // }else{
-
-    //}
     console.log('this.props 2',this.props)
-    var selections = []
-    if(this.state.environmentalIssue===true){
-        selections.push("Environmental Issue")
+    var bodySelections = []
+    if(this.state.BodyPositionCat===true){
+        bodySelections.push("Body Position")
     }
-    if(this.state.selectedType===true){
-        selections.push('Body Position')
+    if(this.state.EnvironmentalIssue===true){
+        bodySelections.push('Environmental Issue')
+    }
+    if(this.state.Health===true){
+        bodySelections.push('Health')
+    }
+    if(this.state.ProceduresandStandards===true){
+        bodySelections.push('ProceduresandStandards')
+    }
+    if(this.state.QualityRelated===true){
+        bodySelections.push('QualityRelated')
+    }
+    if(this.state.ToolsandEquipment===true){
+        bodySelections.push('ToolsandEquipment')
+    }
+    if(this.state.UseofPPE===true){
+        bodySelections.push('UseofPPE')
+    }
+    if(this.state.WorkingConditions===true){
+        bodySelections.push('WorkingConditions')
+    }
+    if(this.state.CommentonSuggestion===true){
+        bodySelections.push('CommentonSuggestions')
     }
     this.props.actions.addBodyPositions(
-      selections
+      bodySelections
       );
     //navigate
     this.props.navigation.navigate('Submit')
@@ -111,6 +197,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
+    marginTop:5,
     fontSize: 14,
     color: 'black'
   },

@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Alert, Button } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 
@@ -12,16 +12,8 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
         super(props)
 
             this.state = {
-                BodyPosition:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                selectedType: null,
+                description: null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
@@ -29,15 +21,15 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
   
   render() {
     var radio_props = [
-        {label: 'BodyPosition', value:'BodyPosition'},
-        {label: 'EnvironmentalIssue', value:'EnvironmentalIssue' },
+        {label: 'Body Position', value:'BodyPosition'},
+        {label: 'Environmental Issue', value:'EnvironmentalIssue' },
         {label: 'Health', value: 'Health' },
-        {label: 'ProceduresandStandards', value: 'ProceduresandStandards' },
-        {label: 'QaulityRelated', value: 'QualityRelated'  },
-        {label: 'ToolsandEquipment', value: 'ToolsandEquipment'  },
-        {label: 'UseofPPE', value: 'UseofPPE'  },
-        {label: 'WorkingConditions', value: 'WorkingConditions'  },
-        {label: 'CommentoSuggestion', value: 'CommentonSuggestion'  },
+        {label: 'Procedures and Standards', value: 'ProceduresandStandards' },
+        {label: 'Qaulity Related', value: 'QualityRelated'  },
+        {label: 'Tools and Equipment', value: 'ToolsandEquipment'  },
+        {label: 'Use of PPE', value: 'UseofPPE'  },
+        {label: 'Working Conditions', value: 'WorkingConditions'  },
+        {label: 'Comment of Suggestion', value: 'CommentofSuggestion'  },
         {label: 'Other', value: 'Other'}
       ];
 
@@ -56,7 +48,10 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
         {/* <TextInput style={styles.inputStyle}
         
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        
+         <TextInput
+        style={{ height: 100 , borderColor: 'gray', borderWidth: 1 }}
+        onChangeText={(description) => this.setState({description:description})}
+        />
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -65,15 +60,19 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 }
 
 storeAndNavigate(index){
-    //store
-    this.props.actions.addType(
-       this.state.selectedType
+  if(  this.state.selectedType === null || this.state.description === null ){
+    Alert.alert("Missing Fields","Please fill in all fields.")
+   }else{
+    this.props.actions.addCategoryType(
+       this.state.selectedType,
+       this.state.description
     );
     //navigate to page chosen
     this.props.navigation.navigate(this.state.selectedType)
     
 }
 }
+ }
 
 const styles = StyleSheet.create({
     inputStyle: {

@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Alert,Button } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 
@@ -12,11 +12,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
         super(props)
 
             this.state = {
-                ImprovementSuggestion:null,
-                AcceptableBehvior:null,
-                AcceptableCondition:null,
-                UnacceptableBehavior:null,
-                UnacceptableCondition:null,
+              description:null,
                 selectedType:null
             
     }
@@ -47,7 +43,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
         />
         <TextInput
         style={{ height: 100 , borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}
+        onChangeText={(description) => this.setState({description: description})}
         />
         
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
@@ -58,15 +54,19 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 }
 
 storeAndNavigate(){
-    //store
-    console.log('this.props 2',this.props)
-    this.props.actions.addType(
-       this.state.selectedType
+  if(  this.state.selectedType === null || this.state.description === null ){
+        Alert.alert("Missing Fields","Please fill in all fields.")
+       }else{
+   
+    this.props.actions.addObservationType(
+       this.state.selectedType,
+       this.state.description
       );
-    //navigate
+   
     this.props.navigation.navigate('ObservationCategory')
 }
 }
+ }
 
 const styles = StyleSheet.create({
     inputStyle: {
