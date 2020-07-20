@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert } from 'react-native';
-// import Constants from 'expo-constants';
+import { StyleSheet, Text,View, TextInput, SafeAreaView, ScrollView,FlatList, Button, Alert } from 'react-native';
 import DatePicker from 'react-native-datepicker'
+import DropDownPicker from 'react-native-dropdown-picker';
 
 
 
@@ -23,78 +23,54 @@ import DatePicker from 'react-native-datepicker'
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
-// handleObservableInfo = () => {
-//     console.log('handling observation info');
-//     console.log(this.state)
-//     const options = {
-//       headers: {'Content-Type': 'application/json'},
-//     };
-  
-//     axios
-//       .post(
-//         'http://10.0.2.2:8080/api/auth/observables',
-  
-//         {
-//           submittedBy: this.state.submittedBy,
-//           locationOrArea: this.state.locationOrArea,
-//           observationDate: this.state.observationDate,
-//           department: this.state.department,
-//           responsibleSupervisor: this.state.responsibleSupervisor
-//         },
-//         options
-//       )
-//       .then((response) => response.data)
-//       .then((json) => {
-//         console.log(json);
-//         this.props.actions.add(
-//           this.state.submittedBy,
-//           this.state.locationOrArea,
-//           this.state.department,
-//           this.state.responsibleSupervisor,
-//           this.state.date,
-//           json.roles,
-//           json.success,
-//         );
-//       })
-//       .then(() => {
-//         if (
-        
-//             this.props.actions.submittedBy&&
-//             this.props.actions.locationOrArea&&
-//             this.props.actions.department&&
-//             this.props.actions.responsibleSupervisor&&
-//             this.props.actions.date
-          
-//         ) {
-//           this.props.navigation.navigate('ObservationType');
-//         }
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   };
-  
-  
+
+
+
   render() {
       
     const {date} = this.state;
 
-  return (
+    return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
          Submitted By
         </Text>
         <TextInput style={styles.inputStyle}
         
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput>
+        
+         
+ 
          <Text style={styles.text}>
-         Location or Area
+         Locations:
         </Text>
-        <TextInput style={styles.inputStyle}
-        
-        onChangeText={(locationOrArea) => this.setState({locationOrArea: locationOrArea})}></TextInput>
-        
+  
+ <DropDownPicker
+     items={[
+         
+         {label: 'Corporate', value: 'Corporate' },
+         {label: 'Sales', value: 'Sales' },
+         {label: 'Carlsbad', value: 'Carlsbad' },
+         {label: 'Odessa', value: 'Odessa' },
+         {label: 'Odessa Pipe Yard', value: 'Odessa Pipe Yard' },
+         {label: 'Midland', value: 'Midland' },
+         {label: 'Pleasanton', value: 'Pleasanton' },
+         {label: 'Kiowa', value: 'Kiowa' },
+         {label: 'Oklahoma City', value: 'Oklahoma City' },
+         {label: 'Waynesburg', value: 'Waynesburg' },
+         {label: '3rd Party Location', value: '3rd Party Location' }
+     ]}
+     defaultValue={"Corporate"}
+     containerStyle={{width: 250, height: 40}}
+     style={{backgroundColor: '#fafafa'}}
+     itemStyle={{
+         justifyContent: 'flex-start'
+     }}
+     dropDownStyle={{backgroundColor: '#fafafa'}}
+     onChangeItem={item => this.setState({
+         locationOrArea: item.value
+     })}
+ />
         <Text style={styles.text}>Observation Date</Text>
 
       <DatePicker
@@ -121,22 +97,41 @@ import DatePicker from 'react-native-datepicker'
             return this.setState({ date: date });
         } } 
 
-        />        
-        <Text style={styles.text}>
-         Department
-        </Text>
-        <TextInput style={styles.inputStyle}
-        
-        onChangeText={(department) => this.setState({department: department})}></TextInput>
+        /> 
+          <Text style={styles.text}>
+          Departments:
+          </Text>       
+         <DropDownPicker
+            items={[
+                {label: 'Shop', value: 'Shop'},
+                {label: 'Fishing and Rental', value: 'Fishing and Rental' },
+                {label: 'Wireline', value: 'Wireline' },
+                {label: 'Thru Tubing', value: 'Thru Tubing' },
+                {label: 'Admin', value: 'Admin' },
+                {label: 'Pipe & Inspection', value: 'Pipe and Inspection' },
+                {label: 'Sales', value: 'Sales' }
+            ]}
+     defaultValue={"Shop"}
+     containerStyle={{width: 250, height: 40}}
+     style={{backgroundColor: '#fafafa'}}
+     itemStyle={{
+         justifyContent: 'flex-start'
+     }}
+     dropDownStyle={{backgroundColor: '#fafafa'}}
+     onChangeItem={item => this.setState({
+         department: item.value
+     })}
+ />
         <Text style={styles.text}>
          Responsible Supervisor
         </Text>
         <TextInput style={styles.inputStyle}
         
         onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
-        <Text>To Proceed to the next Screen</Text>
+        <View style={styles.submitButton}>
+        <Text style={{fontSize: 16, textAlign: 'center'}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
-      </ScrollView>
+        </View>
     </SafeAreaView>
   );
 }
@@ -188,6 +183,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'black'
   },
+  submitButton: {
+    position: 'absolute',
+    alignItems: 'center',
+    marginLeft: 100,
+    bottom:100,
+  }
 });
 
 const mapStateToProps = (state) => ({

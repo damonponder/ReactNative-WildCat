@@ -26,48 +26,52 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Air
-        </Text>
+        
         <CheckBox
         value={this.state.Air}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Air:value})}}
         />
+        <Text style={styles.text}>
+         Air
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Ground
-        </Text>
+           
         <CheckBox
         value={this.state.Ground}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Ground:value})}}
         />
+        <Text style={styles.text}>
+         Ground
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Water
-         </Text>
+        
         <CheckBox
         value={this.state.Water}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Water:value})}}
         />
+        <Text style={styles.text}>
+         Water
+         </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Waiste
-        </Text>
+           
         <CheckBox
         value={this.state.Waiste}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Waiste:value})}}
         />
+        <Text style={styles.text}>
+         Waiste
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

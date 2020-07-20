@@ -25,37 +25,40 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Condition
-        </Text>
+        
         <CheckBox
         value={this.state.Condition}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Condition:value})}}
         />
+        <Text style={styles.text}>
+         Condition
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Selection
-        </Text>
+          
         <CheckBox
         value={this.state.Selection}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Selection:value})}}
         />
+         <Text style={styles.text}>
+         Selection
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Use
-         </Text>
+       
         <CheckBox
         value={this.state.Use}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Use:value})}}
         />
+         <Text style={styles.text}>
+         Use
+         </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

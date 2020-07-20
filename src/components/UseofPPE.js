@@ -18,7 +18,10 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
                 Hand:null,
                 Head:null,
                 Hearing:null,
-                Respiratory:null
+                Respiratory:null,
+                MulitpleHead:null,
+                MulitpleTorso:null,
+                MultipleLegsFeet:null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
@@ -29,116 +32,159 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
   
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView>
+      <View style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Clothing
-        </Text>
+        
         <CheckBox
         value={this.state.Clothing}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Clothing:value})}}
         />
+        <Text style={styles.text}>
+         Clothing
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Body
-        </Text>
+          
         <CheckBox
         value={this.state.Body}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Body:value})}}
         />
+         <Text style={styles.text}>
+         Body
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Eye
-         </Text>
+        
         <CheckBox
         value={this.state.Eye}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Eye:value})}}
         />
+        <Text style={styles.text}>
+         Eye
+         </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Face
-        </Text>
+           
         <CheckBox
         value={this.state.Face}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Face:value})}}
         />
+        <Text style={styles.text}>
+         Face
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Fall
-        </Text>
+           
         <CheckBox
         value={this.state.Fall}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Fall:value})}}
         />
+        <Text style={styles.text}>
+         Fall
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Foot
-        </Text>
+          
         <CheckBox
         value={this.state.Foot}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Foot:value})}}
         />
+         <Text style={styles.text}>
+         Foot
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Hand
-        </Text>
+          
         <CheckBox
         value={this.state.Hand}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Hand:value})}}
         />
+         <Text style={styles.text}>
+         Hand
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Head
-        </Text>
         <CheckBox
         value={this.state.Head}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Head:value})}}
         />
+         <Text style={styles.text}>
+         Head
+        </Text>
+        </View>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Hearing
-        </Text>
         <CheckBox
         value={this.state.Hearing}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Hearing:value})}}
         />
+         <Text style={styles.text}>
+         Hearing
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Respiratory
-        </Text>
         <CheckBox
         value={this.state.Respiratory}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Respiratory:value})}}
         />
+         <Text style={styles.text}>
+         Respiratory
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.MulitpleHead}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({MulitpleHead:value})}}
+        />
+         <Text style={styles.text}>
+         Mulitple - Head
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.MulitpleTorso}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({MulitpleTorso:value})}}
+
+        />
+         <Text style={styles.text}>
+         Multiple - Torso
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.MultipleLegsFeet}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({MultipleLegsFeet:value})}}
+        />
+         <Text style={styles.text}>
+         Multiple - Legs/Feet
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

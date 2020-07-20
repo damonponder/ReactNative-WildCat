@@ -40,7 +40,7 @@ function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
-      <Text style={{color: 'black',fontSize: 18}}>WildCat Safety Tools - Safety First</Text>
+      <Text style={{color: 'black',fontSize: 18}}>WildCat Safety Tools - Safety Always!</Text>
       <Button
       style={{backgroundColor: 'white'}}
         title="Get Started >"

@@ -35,158 +35,172 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Customer Satisfaction
-        </Text>
+       
         <CheckBox
         value={this.state.CustomerSat}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({CustomerSat:value})}}
         />
+         <Text style={styles.text}>
+         Customer Satisfaction
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Design
-        </Text>
+          
         <CheckBox
         value={this.state.Design}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Design:value})}}
         />
+         <Text style={styles.text}>
+         Design
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Drafting
-         </Text>
+        
         <CheckBox
         value={this.state.Drafting}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Drafting:value})}}
         />
+        <Text style={styles.text}>
+         Drafting
+         </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Engineering
-        </Text>
+           
         <CheckBox
         value={this.state.Engineering}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Engineering:value})}}
         />
+        <Text style={styles.text}>
+         Engineering
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Equipment Operation
-        </Text>
+           
         <CheckBox
         value={this.state.EquipOperation}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({EquipOperation:value})}}
         />
+        <Text style={styles.text}>
+         Equipment Operation
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Field Commission
-        </Text>
+           
         <CheckBox
         value={this.state.FieldCommision}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({FieldCommision:value})}}
         />
+        <Text style={styles.text}>
+         Field Commission
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Manufacturing
-        </Text>
+           
         <CheckBox
         value={this.state.Manufacturing}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Manufacturing:value})}}
         />
+        <Text style={styles.text}>
+         Manufacturing
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         On Time Delivery
-        </Text>
+           
         <CheckBox
         value={this.state.OnTimeDelivery}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({OnTimeDelivery:value})}}
         />
+        <Text style={styles.text}>
+         On Time Delivery
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Process and System
-        </Text>
+
         <CheckBox
         value={this.state.ProcessandSystem}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({ProcessandSystem:value})}}
         />
+        <Text style={styles.text}>
+         Process and System
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Sales
-        </Text>
+          
         <CheckBox
         value={this.state.Sales}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Sales:value})}}
         />
+         <Text style={styles.text}>
+         Sales
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Specifications
-        </Text>
+          
         <CheckBox
         value={this.state.Specifications}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Specifications:value})}}
         />
+         <Text style={styles.text}>
+         Specifications
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Supplier
-        </Text>
+          
         <CheckBox
         value={this.state.Supplier}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Supplier:value})}}
         />
+         <Text style={styles.text}>
+         Supplier
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Vender
-        </Text>
+          
         <CheckBox
         value={this.state.Vender}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Vender:value})}}
         />
+         <Text style={styles.text}>
+         Vender
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Test Run
-        </Text>
+           
         <CheckBox
         value={this.state.TestRun}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({TestRun:value})}}
         />
+        <Text style={styles.text}>
+         Test Run
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

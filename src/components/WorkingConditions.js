@@ -10,12 +10,15 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
             this.state = {
                 BuildingandStructure:null,
+                AnimalsandInsects:null,
                 ElectricalHazard:null,
                 ElevatedHeights:null,
                 Housekeeping:null,
-                Lighting:null,
+                LightingandVisibility:null,
                 WalkingSurfaces:null,
-                WorkingSurfaces:null
+                HazardousAtmosphere:null,
+                WorkingSurfaces:null,
+                Weather:null
                 
             
     }
@@ -29,81 +32,123 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Building/Structures
-        </Text>
+        
         <CheckBox
         value={this.state.BuildingandStructure}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({BuildingandStructure:value})}}
         />
+        <Text style={styles.text}>
+         Building/Structures
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Electrical Hazard
+           
+        <CheckBox
+        value={this.state.AnimalsandInsects}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({AnimalsandInsects:value})}}
+        />
+        <Text style={styles.text}>
+         Animals/Insects
         </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
         <CheckBox
         value={this.state.ElectricalHazard}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({ElectricalHazard:value})}}
         />
+        <Text style={styles.text}>
+         Electrical Hazard
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Elevated Heights
-         </Text>
+        
         <CheckBox
         value={this.state.ElevatedHeights}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({ElevatedHeights:value})}}
         />
+        <Text style={styles.text}>
+         Elevated Heights
+         </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Housekeeping
-        </Text>
+          
         <CheckBox
         value={this.state.Housekeeping}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Housekeeping:value})}}
         />
+         <Text style={styles.text}>
+         Housekeeping
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Lighting
-        </Text>
+          
         <CheckBox
-        value={this.state.Lighting}
+        value={this.state.LightingandVisibility}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({Lighting:value})}}
+              this.setState({LightingandVisibility:value})}}
         />
+         <Text style={styles.text}>
+         Lighting/Visibility
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Walking Surfaces
-        </Text>
+           
         <CheckBox
         value={this.state.WalkingSurfaces}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({WalkingSurfaces:value})}}
         />
+        <Text style={styles.text}>
+         Walking Surfaces
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Working Surfaces
+          
+        <CheckBox
+        value={this.state.HazardousAtmosphere}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({HazardousAtmosphere:value})}}
+        />
+         <Text style={styles.text}>
+         Hazardous Atmosphere
         </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+          
         <CheckBox
         value={this.state.WorkingSurfaces}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({WorkingSurfaces:value})}}
         />
+         <Text style={styles.text}>
+         Working Surfaces
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.Weather}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Weather:value})}}
+        />
+         <Text style={styles.text}>
+         Weather
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

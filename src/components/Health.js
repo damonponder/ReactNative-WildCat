@@ -29,81 +29,100 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Cold Temps
-        </Text>
+        
         <CheckBox
         value={this.state.ColdTemps}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({ColdTemps:value})}}
         />
+        <Text style={styles.text}>
+         Cold Temps
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Hot Temps
-        </Text>
+           
         <CheckBox
         value={this.state.HotTemps}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({HotTemps:value})}}
         />
+        <Text style={styles.text}>
+         Hot Temps
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Ingestion
-         </Text>
+        
         <CheckBox
         value={this.state.Ingestion}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Ingestion:value})}}
         />
+         <Text style={styles.text}>
+         Fatigue
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Inhalation
-        </Text>
+        
+        <CheckBox
+        value={this.state.Ingestion}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Ingestion:value})}}
+        />
+        <Text style={styles.text}>
+         Ingestion
+         </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
         <CheckBox
         value={this.state.Inhalation}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Inhalation:value})}}
         />
+        <Text style={styles.text}>
+         Inhalation
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Noise
-        </Text>
+           
         <CheckBox
         value={this.state.Noise}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Noise:value})}}
         />
+        <Text style={styles.text}>
+         Noise
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Radiation
-        </Text>
+           
         <CheckBox
         value={this.state.Radiation}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Radiation:value})}}
         />
+        <Text style={styles.text}>
+         Radiation
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-        Skin Contact
-        </Text>
+           
         <CheckBox
         value={this.state.SkinContact}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({SkinContact:value})}}
         />
+        <Text style={styles.text}>
+        Skin Contact
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

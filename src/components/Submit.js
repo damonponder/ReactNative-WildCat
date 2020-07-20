@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert, View } from 'react-native';
 
 
 
@@ -88,14 +88,13 @@ handleSubmit = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>
-         Final Form Submital
-        </Text>
-        {/* <TextInput style={styles.inputStyle}
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
-        <Text>Please Verify your Final Submital of this Form</Text>
+        <View style={{alignItems:'center', fontSize:20, marginTop:50}}>
+        <Text style={{fontSize: 16}}>Please Verify your Final Submital of this Form</Text>
+        </View>
+        <View style={{alignItem:'center', marginTop:100}}>
         <Button title={'Submit Form'} onPress={createAlertButton}/>
-      </ScrollView>
+        </View>
+        </ScrollView>
     </SafeAreaView>
   );
 }

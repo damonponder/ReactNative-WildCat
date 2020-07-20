@@ -28,81 +28,88 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Adequate
-        </Text>
+        
         <CheckBox
         value={this.state.Adequate}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Adequate:value})}}
         />
+        <Text style={styles.text}>
+         Adequate
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Not Adequate
-        </Text>
+           
         <CheckBox
         value={this.state.NotAdequate}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({NotAdequate:value})}}
         />
+        <Text style={styles.text}>
+         Not Adequate
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Followed
-         </Text>
+        
         <CheckBox
         value={this.state.Followed}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Followed:value})}}
         />
+        <Text style={styles.text}>
+         Followed
+         </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Not Followed
-        </Text>
+          
         <CheckBox
         value={this.state.NotFollowed}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({NotFollowed:value})}}
         />
+         <Text style={styles.text}>
+         Not Followed
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Known
-        </Text>
+           
         <CheckBox
         value={this.state.Known}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({Known:value})}}
         />
+        <Text style={styles.text}>
+         Known
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Not Known
-        </Text>
+           
         <CheckBox
         value={this.state.NotKnown}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({NotKnown:value})}}
         />
+        <Text style={styles.text}>
+         Not Known
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Use of PPE 
-        </Text>
+           
         <CheckBox
         value={this.state.NotinPlace}
           onValueChange={(value) => {
               console.log('value: ', value)
               this.setState({NotinPlace:value})}}
         />
+        <Text style={styles.text}>
+         Not in Place 
+        </Text>
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>

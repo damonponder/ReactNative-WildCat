@@ -9,16 +9,21 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         super(props)
 
             this.state = {
-                BodyPositionCat:null,
-                EnvironmentalIssue:null,
-                Health:null,
-                ProceduresandStandards:null,
-                QualityRelated:null,
-                ToolsandEquipment:null,
-                UseofPPE:null,
-                WorkingConditions:null,
-                CommentonSuggestion:null,
-                Other:null
+                AscendingDescinding:null,
+                Bending:null,
+                Carrying:null,
+                EyesOnTask:null,
+                Force:null,
+                Grip:null,
+                Lifting:null,
+                LineOfFire:null,
+                PinchPoints:null,
+                Posture:null,
+                PullingPushing:null,
+                Repetitive:null,
+                Stooping:null,
+                Twisting:null,
+                Suspended:null
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
@@ -31,106 +36,180 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{flex:1,flexDirection:'row'}}>
-        <CheckBox
-        value={this.state.BodyPositionCat}
-          onValueChange={(value) => {
-              console.log('value: ', value)
-              this.setState({BodyPositionCat:value})}}
-        />
         <Text style={styles.text}>
-         Body Position
+         Ascending/Descending
         </Text>
       
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
         <CheckBox
-        value={this.state.environmentalIssue}
+        value={this.state.AscendingDescinding}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({environmentalIssue:value})}}
+              this.setState({AscendingDescinding:value})}}
         />
-           <Text style={styles.text}>
-         Environmental Issue
+        <Text style={styles.text}>
+         Bending
         </Text>
        
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
+        
+        <CheckBox
+        value={this.state.Bending}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Bending:value})}}
+        />
         <Text style={styles.text}>
-         Health
+         Carrying
          </Text>
-        <CheckBox
-        value={this.state.Health}
-          onValueChange={(value) => {
-              console.log('value: ', value)
-              this.setState({Health:value})}}
-        />
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Procedures and Standards
-        </Text>
+           
         <CheckBox
-        value={this.state.ProceduresandStandards}
+        value={this.state.Carrying}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({ProceduresandStandards:value})}}
+              this.setState({Carrying:value})}}
         />
+        <Text style={styles.text}>
+         Eyes on Task/Hands
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Quality Related
-        </Text>
+           
         <CheckBox
-        value={this.state.QualityRelated}
+        value={this.state.EyesOnTask}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({QualityRelated:value})}}
+              this.setState({EyesOnTask:value})}}
         />
+        <Text style={styles.text}>
+         Force
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Tools and Equipment
-        </Text>
+           
         <CheckBox
-        value={this.state.ToolsandEquipment}
+        value={this.state.Force}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({ToolsandEquipment:value})}}
+              this.setState({Force:value})}}
         />
+        <Text style={styles.text}>
+         Grip
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Use of PPE 
-        </Text>
+          
         <CheckBox
-        value={this.state.UseofPPE}
+        value={this.state.Grip}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({UseofPPE:value})}}
+              this.setState({Grip:value})}}
         />
+         <Text style={styles.text}>
+         Lifting 
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Working Conditions
-        </Text>
+           
         <CheckBox
-        value={this.state.WorkingConditions}
+        value={this.state.Lifting}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({WorkingConditions:value})}}
+              this.setState({Lifting:value})}}
         />
+        <Text style={styles.text}>
+         Line of Fire
+        </Text>
         </View>
         <View style={{flex:1,flexDirection:'row'}}>
-           <Text style={styles.text}>
-         Comment Suggestions 
-        </Text>
+           
         <CheckBox
-        value={this.state.CommentonSuggestion}
+        value={this.state.LineOfFire}
           onValueChange={(value) => {
               console.log('value: ', value)
-              this.setState({CommentonSuggestion:value})}}
+              this.setState({LineOfFire:value})}}
         />
+        <Text style={styles.text}>
+         Pinch Points
+        </Text>
         </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.PinchPoints}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({PinchPoints:value})}}
+        />
+        <Text style={styles.text}>
+         Posture
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.Posture}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Posture:value})}}
+        />
+        <Text style={styles.text}>
+         Pulling/Pushing
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.PullingPushing}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({PullingPushing:value})}}
+        />
+        <Text style={styles.text}>
+         Repetitive Motion
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.Repetitive}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Repetitive:value})}}
+        />
+        <Text style={styles.text}>
+         Stooping
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.Stooping}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Stooping:value})}}
+        />
+        <Text style={styles.text}>
+         Twisting
+        </Text>
+        </View>
+        <View style={{flex:1,flexDirection:'row'}}>
+           
+        <CheckBox
+        value={this.state.Twisting}
+          onValueChange={(value) => {
+              console.log('value: ', value)
+              this.setState({Twisting:value})}}
+        />
+        <Text style={styles.text}>
+         Under Suspended Load
+        </Text>
+        </View>
+       
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>

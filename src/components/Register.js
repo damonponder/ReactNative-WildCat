@@ -66,7 +66,7 @@ handleSignUp = () => {
         <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
             {' '}
-            Register Form{' '}
+            Registration Form{' '}
           </Text>
           <TextInput placeholder="Enter First Name" style={styles.inputStyle} 
            value={this.state.firstname}
@@ -125,7 +125,7 @@ handleSignUp = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
