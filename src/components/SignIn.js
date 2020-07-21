@@ -1,9 +1,12 @@
-import React from 'react';
-import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import React, {Fragment} from 'react';
+import {View, Text, TextInput, Button,Image, StyleSheet} from 'react-native';
 import axios from 'axios';
 import {bindActionCreators} from 'redux';
 import * as jwtActions from '../redux/jwt/actions';
 import {connect} from 'react-redux';
+import {WOTLOGO} from '../../Images/logoIndex'
+
+
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -57,8 +60,11 @@ class SignIn extends React.Component {
 
   render() {
     return (
+      <Fragment>
+      <View style={{backgroundColor:'white'}}>
+        <Image style={{width:335, height:250,marginLeft:30, alignItems:'center', backgroundColor:'white'}} source={WOTLOGO}/>
+      </View>
       <View style={styles.container}>
-        <View style={{flex: 1, justifyContent: 'center'}}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
             {' '}
             Login Form{' '}
@@ -96,7 +102,7 @@ class SignIn extends React.Component {
             style={{fontSize: 14, color: 'red', backgroundColor: 'red'}}
             title="Don't have an account? Register Here."></Button>
         </View>
-      </View>
+      </Fragment>
     );
   }
 }

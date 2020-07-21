@@ -7,7 +7,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, Button, Image} from 'react-native';
 
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -29,7 +29,7 @@ import QualityRelated from './src/components/QualityRelated';
 import UseofPPE from './src/components/UseofPPE';
 import WorkingConditions from './src/components/WorkingConditions';
 import Submit from './src/components/Submit';
-
+import { WOTLOGO } from './Images/logoIndex'
 
 
 
@@ -40,9 +40,10 @@ function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
-      <Text style={{color: 'black',fontSize: 18}}>WildCat Safety Tools - Safety Always!</Text>
+      <Image style={{height:200, width:270, marginBottom:50}} source={ WOTLOGO }/>
+      <Text style={{color: 'black',fontSize: 18, marginBottom: 20}}>WildCat Safety Tools - Safety Always!</Text>
       <Button
-      style={{backgroundColor: 'white'}}
+      style={{backgroundColor: '#FEE53B'}}
         title="Get Started >"
         onPress={() => navigation.navigate('SignIn')}
       />

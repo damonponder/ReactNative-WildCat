@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button, Alert, View } from 'react-native';
-
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Image, Button, Alert, View } from 'react-native';
+import {WOTLOGO} from '../../Images/logoIndex'
 
 
  class Submit extends React.Component {
@@ -86,6 +86,7 @@ handleSubmit = () => {
         );
 
   return (
+    <Fragment>
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{alignItems:'center', fontSize:20, marginTop:50}}>
@@ -96,6 +97,10 @@ handleSubmit = () => {
         </View>
         </ScrollView>
     </SafeAreaView>
+    <View style={{backgroundColor:'white'}}>
+    <Image style={{width:270, height:200, backgroundColor:'white',marginLeft:75, marginBottom: 20}} source={WOTLOGO}/>
+  </View>
+  </Fragment>
   );
 }
 
@@ -127,6 +132,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // marginTop: Constants.statusBarHeight,
+    backgroundColor:'white'
   },
 
   scrollView: {
