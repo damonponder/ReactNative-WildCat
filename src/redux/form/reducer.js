@@ -1,22 +1,20 @@
 import * as types from './constants';
 
 const initialState = {
-  submittedBy:null,
-  locationOrArea:null,
-  date:null,
-  department:null,
-  responsibleSupervisor:null,
-
-
-  categoryTypes:null,
-  bodyPositionCategories:[],
-   environmentalCondtions:[],
-   healthCategories:[],
-   toolsAndEquipmentCategories:[],
-   procedureAndStandardsCategories:[],
-   qualityRelatedCategories:[],
-useofPPECategories:[],
-workingConditionsCategories:[]
+    submittedBy:null,
+    locationOrArea:null,
+    date:null,
+    department:null,
+    responsibleSupervisor:null,
+    categoryType:null,
+    bodyPositionCategories:[],
+    environmentalConditions:[],
+    healthCategories:[],
+    toolsAndEquipmentCategories:[],
+    procedureAndStandardsCategories:[],
+    qualityRelatedCategories:[],
+    useofPPECategories:[],
+    workingConditionsCategories:[]
 };
 
 export default function formReducer(state = initialState, action) {
@@ -40,20 +38,22 @@ export default function formReducer(state = initialState, action) {
         return {
             ...state,
             categoryType: action.payload.categoryType,
-            categoryDescription:action.payload.categoryDescription
-            
+            categoryDescription: action.payload.categoryDescription
         };
-
     case types.BODYPOSITIONS:
-    return {
-        ...state,
-        bodyPositionCategories:action.payload.bodyPositionCategories
-
-    }
-    case types.ENVIRONMENTALCONDITIONS:
+        
+        const newBodyPositionCategories = state.bodyPositionCategories.concat(action.payload.bodyPositionCategories);
         return {
             ...state,
-            environmentalCondtions:action.payload.environmentalConditionCategories
+            bodyPositionCategories:newBodyPositionCategories
+
+        }
+    case types.ENVIRONMENTALCONDITIONS:
+        console.log(action.payload.environmentalConditionCategories)
+        const newEnvironmentalConditionCategories = state.environmentalConditions.concat(action.payload.environmentalConditionCategories);
+        return {
+            ...state,
+            environmentalConditions:newEnvironmentalConditionCategories
     
         }
         case types.HEALTHCATEGORIES:
@@ -90,6 +90,24 @@ export default function formReducer(state = initialState, action) {
                     ...state,
                     workingConditionsCategories:action.payload.workingConditionsCategories
             
+                }
+            case types.CLEARFORM:
+                return {
+                    
+                    submittedBy:null,
+                    locationOrArea:null,
+                    date:null,
+                    department:null,
+                    responsibleSupervisor:null,
+                    categoryType:null,
+                    bodyPositionCategories:[],
+                    environmentalConditions:[],
+                    healthCategories:[],
+                    toolsAndEquipmentCategories:[],
+                    procedureAndStandardsCategories:[],
+                    qualityRelatedCategories:[],
+                    useofPPECategories:[],
+                    workingConditionsCategories:[]
                 }
       default:
       return {...state};

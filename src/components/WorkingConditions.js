@@ -159,7 +159,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
 storeAndNavigate(){
     
-    console.log('this.props 2',this.props)
     var workingConditionselections = []
     if(this.state.BuildingandStructure===true){
         workingConditionselections.push("Building and Structure")
@@ -182,6 +181,9 @@ storeAndNavigate(){
     if(this.state.WorkingSurfaces===true){
         workingConditionselections.push('Working Surfaces')
     }
+    if(this.state.Weather===true){
+      workingConditionselections.push('Weather')
+  }
     
     this.props.actions.addWorkingConditionsCategories(
       workingConditionselections

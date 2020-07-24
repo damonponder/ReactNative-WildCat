@@ -42,8 +42,9 @@ export function addInfo(submittedBy,locationOrArea,date,department,responsibleSu
       }
   }
   export function addEnvironmentalConditions(environmentalConditionCategories){
+      console.log('evn cat in action',environmentalConditionCategories)
     return {
-        type: types.ENVIROMENTALCONDITIONS,
+        type: types.ENVIRONMENTALCONDITIONS,
         payload:{
 
           environmentalConditionCategories:environmentalConditionCategories
@@ -102,5 +103,12 @@ export function addWorkingConditionsCategories(workingConditionsCategories){
 
             workingConditionsCategories:workingConditionsCategories
         }
+    }
+}
+
+export function clearForm(){
+    return {
+        type:types.CLEARFORM,
+        payload:{}
     }
 }

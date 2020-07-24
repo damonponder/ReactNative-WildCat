@@ -43,8 +43,12 @@ function HomeScreen({navigation}) {
       <Image style={{height:200, width:270, marginBottom:50}} source={ WOTLOGO }/>
       <Text style={{color: 'black',fontSize: 18, marginBottom: 20}}>WildCat Safety Tools - Safety Always!</Text>
       <Button
-      style={{backgroundColor: '#FEE53B'}}
-        title="Get Started >"
+      style={{height:200}}
+      
+
+
+      color={"black"}
+        title={"Get Started >"}
         onPress={() => navigation.navigate('SignIn')}
       />
     </View>
@@ -64,7 +68,7 @@ const App: () => React$Node = () => {
           <Stack.Screen name="Register" component={Register} />
 
           <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="ObservationInfo" component={ObservationInfo} />
+          <Stack.Screen options={{headerLeft:null}} name="ObservationInfo" component={ObservationInfo} />
           <Stack.Screen name="ObservationType" component={ObservationType} />
           <Stack.Screen name="ObservationCategory" component={ObservationCategory} />
           <Stack.Screen name="BodyPosition" component={BodyPosition} />

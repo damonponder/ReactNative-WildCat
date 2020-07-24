@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as jwtActions from '../redux/jwt/actions';
 import {connect} from 'react-redux';
 import {WOTLOGO} from '../../Images/logoIndex'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -82,25 +83,16 @@ class SignIn extends React.Component {
             value={this.state.password}
             onChangeText={(password) => this.setState({password: password})}
           />
-          <Button
-            onPress={() => {
+         
+            <TouchableOpacity onPress={() => {
               this.handleSignIn();
-            }}
-            color="blue"
-            style={{
-              paddingTop: 100,
-              height: 30,
-              width: 100,
-              borderWidth: 2,
-              borderColor: 'black',
-            }}
-            title={'Sign In'}></Button>
+            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Sign In</Text></TouchableOpacity>
           <Button
             onPress={() => {
               this.props.navigation.navigate('Register');
             }}
             style={{fontSize: 14, color: 'red', backgroundColor: 'red'}}
-            title="Don't have an account? Register Here."></Button>
+            title="Don't have an account? Register Here."/>
         </View>
       </Fragment>
     );

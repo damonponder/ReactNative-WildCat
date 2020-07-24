@@ -10,14 +10,14 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
  class ObservationInfo extends React.Component {
     constructor(props){
-        super(props)
+        super(props) 
 
             this.state = {
                 submittedBy:null,
                 locationOrArea:null,
                 department:null,
                 responsibleSupervisor:null,
-                date: new Date()
+                date: "January 20th 2020"//new Date()
             
     }
     this.storeAndNavigate = this.storeAndNavigate.bind(this)
@@ -75,7 +75,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
       <DatePicker
         style={{width: 200}}
-        date={this.state.date}
+        date={new Date()}
         mode="date"
         placeholder="select date"
         format="YYYY-MM-DD"
@@ -94,7 +94,8 @@ import DropDownPicker from 'react-native-dropdown-picker';
           // ... You can check the source to find the other keys.
         }}
         onChange={ (date) => {
-            return this.setState({ date: date });
+          //var dateString = date.toString()
+          this.setState({ date: "January 20th 2020"});
         } } 
 
         /> 
@@ -184,10 +185,11 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   submitButton: {
-    position: 'absolute',
+   // position: 'absolute',
+   marginTop:20,
     alignItems: 'center',
-    marginLeft: 100,
-    bottom:100,
+   // marginLeft: 100,
+   // bottom:100,
   }
 });
 

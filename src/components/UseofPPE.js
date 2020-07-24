@@ -129,7 +129,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Head
         </Text>
         </View>
-        </View>
         <View style={{flex:1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Hearing}
@@ -186,6 +185,8 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Multiple - Legs/Feet
         </Text>
         </View>
+        </View>
+
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
@@ -200,7 +201,6 @@ storeAndNavigate(){
    // }else{
 
     //}
-    console.log('this.props 2',this.props)
     var useofPPESelections = []
     if(this.state.Clothing===true){
         useofPPESelections.push("Clothing")
@@ -232,6 +232,15 @@ storeAndNavigate(){
     if(this.state.Respiratory===true){
         useofPPESelections.push('Respiratory')
     }
+    if(this.state.MulitpleHead===true){
+      useofPPESelections.push('Multiple-Head')
+  }
+  if(this.state.MulitpleTorso===true){
+    useofPPESelections.push('Multiple-Torse')
+}
+if(this.state.MultipleLegsFeet===true){
+  useofPPESelections.push('Multiple-Legs/Feet')
+}
     this.props.actions.addUseofPPECategories(
       useofPPESelections
       );

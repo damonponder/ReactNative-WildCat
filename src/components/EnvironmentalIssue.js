@@ -75,14 +75,20 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         </View>
         <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+        <Button title={'Restart Form'} onPress={() => {this.resetForm()}}></Button>
+
       </ScrollView>
     </SafeAreaView>
   );
 }
 
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
+}
+
 storeAndNavigate(){
   
-    console.log('this.props 2',this.props)
     var environmentalSelections = []
     if(this.state.Air===true){
         environmentalSelections.push("Air")
@@ -96,7 +102,7 @@ storeAndNavigate(){
     if(this.state.Waiste===true){
         environmentalSelections.push('Waiste')
     }
-    
+    console.log('env array on page',environmentalSelections)
     this.props.actions.addEnvironmentalConditions(
       environmentalSelections
       );

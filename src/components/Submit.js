@@ -4,7 +4,7 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Image, Button, Alert, View } from 'react-native';
 import {WOTLOGO} from '../../Images/logoIndex'
-
+import axios from 'axios';
 
  class Submit extends React.Component {
     constructor(props){
@@ -18,49 +18,46 @@ import {WOTLOGO} from '../../Images/logoIndex'
                 date: new Date()
             
     }
-    this.storeAndNavigate = this.storeAndNavigate.bind(this)
 };
 
 handleSubmit = () => {
     console.log('handling observation info');
-    console.log(this.state)
+    console.log('env -------',this.props.formData.form.environmentalConditions)
     const options = {
       headers: {'Content-Type': 'application/json'},
     };
-  
+
     axios
       .post(
         'http://10.0.2.2:8080/api/auth/observables',
   
         {
-          submittedBy: this.props.verify.form.submittedBy,
-          locationOrArea: this.state.locationOrArea,
-          observationDate: this.state.observationDate,
-          department: this.state.department,
-          responsibleSupervisor: this.state.responsibleSupervisor
+          submittedBy: this.props.formData.form.submittedBy ? this.props.formData.form.submittedBy : "",
+          locationOrArea: this.props.formData.form.locationOrArea,
+          observationDate: this.props.formData.form.date,
+          department: this.props.formData.form.department,
+          responsibleSupervisor: this.props.formData.form.responsibleSupervisor,
+          categoryType: this.props.formData.form.categoryType,
+          bodyPositionCategories: this.props.formData.form.bodyPositionCategories,
+          environmentalConditions: this.props.formData.form.environmentalConditions,
+          healthCategories: this.props.formData.form.healthCategories,
+          toolsAndEquipmentCategories: this.props.formData.form.toolsAndEquipmentCategories,
+          procedureAndStandardsCategories: this.props.formData.form.procedureAndStandardsCategories,
+          qualityRelatedCategories: this.props.formData.form.qualityRelatedCategories,
+        useofPPECategories: this.props.formData.form.useofPPECategories,
+        workingConditionsCategories: this.props.formData.form.workingConditionsCategories
         },
         options
       )
       .then((response) => response.data)
       .then((json) => {
         console.log(json);
-        this.props.actions.add(
-          this.state.submittedBy,
-          this.state.locationOrArea,
-          this.state.department,
-          this.state.responsibleSupervisor,
-          this.state.date,
-          json.roles,
-          json.success,
-        );
+       
       })
       .then(() => {
-        if (
-          this.props.verify.jwt.token &&
-          this.props.verify.jwt.isAuthenticated
-        ) {
+        this.props.actions.clearForm();
           this.props.navigation.navigate('Dashboard');
-        }
+      
       })
       .catch((error) => {
         console.log(error);
@@ -93,7 +90,7 @@ handleSubmit = () => {
         <Text style={{fontSize: 16}}>Please Verify your Final Submital of this Form</Text>
         </View>
         <View style={{alignItem:'center', marginTop:100}}>
-        <Button title={'Submit Form'} onPress={createAlertButton}/>
+        <Button title={'Submit Form'} onPress={this.handleSubmit}/>
         </View>
         </ScrollView>
     </SafeAreaView>
@@ -102,21 +99,6 @@ handleSubmit = () => {
   </View>
   </Fragment>
   );
-}
-
-storeAndNavigate(){
-  console.log('form data: ',JSON.stringify(this.props.formData.form.useofPPECategories))
-    //store
-    //console.log('this.prop',this.props)
-   // this.props.actions.addInfo(
-     //  this.state.submittedBy,
-     //  this.state.locationOrArea,
-         // this.state.observationDate,
-         // this.state.department,
-         // this.state.responsibleSupervisor
-    //  );
-    //navigate
-   // this.props.navigation.navigate('Dashboard')
 }
 }
 

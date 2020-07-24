@@ -218,38 +218,60 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 }
 
 storeAndNavigate(){
-    console.log('this.props 2',this.props)
     var bodySelections = []
-    if(this.state.BodyPositionCat===true){
-        bodySelections.push("Body Position")
+    console.log('state at the top', this.state);
+    if(this.state.AscendingDescinding===true){
+        bodySelections.push("Ascending/Descinding")
     }
-    if(this.state.EnvironmentalIssue===true){
-        bodySelections.push('Environmental Issue')
+    if(this.state.Bending===true){
+        bodySelections.push('Bending')
     }
-    if(this.state.Health===true){
-        bodySelections.push('Health')
+    if(this.state.Carrying===true){
+        bodySelections.push('Carrying')
     }
-    if(this.state.ProceduresandStandards===true){
-        bodySelections.push('ProceduresandStandards')
+    if(this.state.EyesOnTask===true){
+        bodySelections.push('Eyes on Task/Hands')
     }
-    if(this.state.QualityRelated===true){
-        bodySelections.push('QualityRelated')
+    
+    if(this.state.Force===true){
+        bodySelections.push('Force')
     }
-    if(this.state.ToolsandEquipment===true){
-        bodySelections.push('ToolsandEquipment')
+    if(this.state.Grip===true){
+        bodySelections.push('Grip')
     }
-    if(this.state.UseofPPE===true){
-        bodySelections.push('UseofPPE')
+    if(this.state.Lifting===true){
+        bodySelections.push('Lifting')
     }
-    if(this.state.WorkingConditions===true){
-        bodySelections.push('WorkingConditions')
+    if(this.state.LineOfFire===true){
+        bodySelections.push('Line of Fire')
     }
-    if(this.state.CommentonSuggestion===true){
-        bodySelections.push('CommentonSuggestions')
+    if(this.state.PinchPoints===true){
+        bodySelections.push('Pinch Points')
     }
+    if(this.state.Posture===true){
+      bodySelections.push('Posture')
+  }
+  if(this.state.PullingPushing===true){
+    bodySelections.push('Pulling/Pushing')
+}
+if(this.state.Repetitive===true){
+  bodySelections.push('Repetitive Motion')
+}
+if(this.state.Repetitive===true){
+  bodySelections.push('Repetitive Motion')
+}
+if(this.state.Stooping===true){
+  bodySelections.push('Stooping')
+}
+if(this.state.Twisting===true){
+  bodySelections.push('Twisting')
+} 
+if(this.state.Suspended===true){
+  bodySelections.push('Under Suspended Load')
+}
     this.props.actions.addBodyPositions(
       bodySelections
-      );
+    );
     //navigate
     this.props.navigation.navigate('Submit')
 }

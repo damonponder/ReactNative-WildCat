@@ -211,7 +211,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
 storeAndNavigate(){
     
-    console.log('this.props 2',this.props)
     var qualityRelatedSelections = []
     if(this.state.CustomerSat===true){
         qualityRelatedSelections.push('Customer Satisfaction')

@@ -1,6 +1,10 @@
 import * as types from './constants';
 
-export const remove = () => ({type: types.REMOVE});
+export function remove(){
+  return{
+    type: types.REMOVE
+    ,payload:{
+  }}}
 export const verify = () => ({type: types.VERIFY});
 export function add(token, email, roles, isAuthenticated) {
   console.log('hit add function');

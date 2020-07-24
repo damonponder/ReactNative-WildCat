@@ -143,7 +143,6 @@ storeAndNavigate(){
    // }else{
 
     //}
-    console.log('this.props 2',this.props)
     var selections = []
     if(this.state.environmentalIssue===true){
         selections.push("Body Position")
@@ -172,6 +171,7 @@ storeAndNavigate(){
     if(this.state.selectedType===true){
         selections.push('CommentonSuggestions')
     }
+    console.log('sitatuon 1', selections);
     this.props.actions.addBodyPositions(
       selections
       );

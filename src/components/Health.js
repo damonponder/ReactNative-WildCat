@@ -133,7 +133,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
 storeAndNavigate(){
    
-    console.log('this.props 2',this.props)
     var healthSelections = []
     if(this.state.ColdTemps===true){
         healthSelections.push("Cold Temps")

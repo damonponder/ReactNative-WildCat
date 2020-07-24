@@ -120,7 +120,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
 storeAndNavigate(){
     
-    console.log('this.props 2',this.props)
     var procedureandStandardSelections = []
     if(this.state.Adequate===true){
         procedureandStandardSelections.push("Adequate")
