@@ -30,7 +30,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Air}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Air:value})}}
         />
         <Text style={styles.text}>
@@ -42,7 +41,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Ground}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Ground:value})}}
         />
         <Text style={styles.text}>
@@ -54,7 +52,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Water}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Water:value})}}
         />
         <Text style={styles.text}>
@@ -66,7 +63,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Waiste}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Waiste:value})}}
         />
         <Text style={styles.text}>
@@ -88,7 +84,6 @@ resetForm(){
 }
 
 storeAndNavigate(){
-  
     var environmentalSelections = []
     if(this.state.Air===true){
         environmentalSelections.push("Air")
@@ -102,10 +97,9 @@ storeAndNavigate(){
     if(this.state.Waiste===true){
         environmentalSelections.push('Waiste')
     }
-    console.log('env array on page',environmentalSelections)
     this.props.actions.addEnvironmentalConditions(
       environmentalSelections
-      );
+    );
     //navigate
     this.props.navigation.navigate('Submit')
 }

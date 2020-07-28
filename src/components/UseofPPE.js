@@ -39,7 +39,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Clothing}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Clothing:value})}}
         />
         <Text style={styles.text}>
@@ -51,7 +50,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Body}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Body:value})}}
         />
          <Text style={styles.text}>
@@ -63,7 +61,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Eye}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Eye:value})}}
         />
         <Text style={styles.text}>
@@ -75,7 +72,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Face}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Face:value})}}
         />
         <Text style={styles.text}>
@@ -87,7 +83,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Fall}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Fall:value})}}
         />
         <Text style={styles.text}>
@@ -99,7 +94,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Foot}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Foot:value})}}
         />
          <Text style={styles.text}>
@@ -111,7 +105,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Hand}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Hand:value})}}
         />
          <Text style={styles.text}>
@@ -122,7 +115,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Head}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Head:value})}}
         />
          <Text style={styles.text}>
@@ -133,7 +125,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Hearing}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Hearing:value})}}
         />
          <Text style={styles.text}>
@@ -144,7 +135,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Respiratory}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Respiratory:value})}}
         />
          <Text style={styles.text}>
@@ -155,7 +145,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.MulitpleHead}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({MulitpleHead:value})}}
         />
          <Text style={styles.text}>
@@ -166,7 +155,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.MulitpleTorso}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({MulitpleTorso:value})}}
 
         />
@@ -178,7 +166,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.MultipleLegsFeet}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({MultipleLegsFeet:value})}}
         />
          <Text style={styles.text}>

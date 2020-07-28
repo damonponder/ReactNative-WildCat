@@ -33,7 +33,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.ColdTemps}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({ColdTemps:value})}}
         />
         <Text style={styles.text}>
@@ -45,7 +44,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.HotTemps}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({HotTemps:value})}}
         />
         <Text style={styles.text}>
@@ -57,7 +55,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Ingestion}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Ingestion:value})}}
         />
          <Text style={styles.text}>
@@ -69,7 +66,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Ingestion}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Ingestion:value})}}
         />
         <Text style={styles.text}>
@@ -81,7 +77,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Inhalation}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Inhalation:value})}}
         />
         <Text style={styles.text}>
@@ -93,7 +88,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Noise}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Noise:value})}}
         />
         <Text style={styles.text}>
@@ -105,7 +99,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Radiation}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Radiation:value})}}
         />
         <Text style={styles.text}>
@@ -117,7 +110,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.SkinContact}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({SkinContact:value})}}
         />
         <Text style={styles.text}>

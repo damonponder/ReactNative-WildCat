@@ -32,7 +32,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Adequate}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Adequate:value})}}
         />
         <Text style={styles.text}>
@@ -44,7 +43,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.NotAdequate}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({NotAdequate:value})}}
         />
         <Text style={styles.text}>
@@ -56,7 +54,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Followed}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Followed:value})}}
         />
         <Text style={styles.text}>
@@ -68,7 +65,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.NotFollowed}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({NotFollowed:value})}}
         />
          <Text style={styles.text}>
@@ -80,7 +76,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Known}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Known:value})}}
         />
         <Text style={styles.text}>
@@ -92,7 +87,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.NotKnown}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({NotKnown:value})}}
         />
         <Text style={styles.text}>
@@ -104,7 +98,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.NotinPlace}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({NotinPlace:value})}}
         />
         <Text style={styles.text}>

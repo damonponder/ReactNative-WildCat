@@ -30,6 +30,7 @@ import UseofPPE from './src/components/UseofPPE';
 import WorkingConditions from './src/components/WorkingConditions';
 import Submit from './src/components/Submit';
 import { WOTLOGO } from './Images/logoIndex'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -42,15 +43,14 @@ function HomeScreen({navigation}) {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
       <Image style={{height:200, width:270, marginBottom:50}} source={ WOTLOGO }/>
       <Text style={{color: 'black',fontSize: 18, marginBottom: 20}}>WildCat Safety Tools - Safety Always!</Text>
-      <Button
-      style={{height:200}}
-      
-
-
-      color={"black"}
-        title={"Get Started >"}
-        onPress={() => navigation.navigate('SignIn')}
-      />
+      <TouchableOpacity  onPress={() => {
+              navigation.navigate('SignIn');
+            }}
+           style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Get Started</Text></TouchableOpacity>
+          <TouchableOpacity  onPress={() => {
+              navigation.navigate('Register');
+            }}
+           style={{borderRadius:10,borderWidth:1,borderColor:'black',width:350,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Don't have an account? Register Here!</Text></TouchableOpacity>
     </View>
   );
 }

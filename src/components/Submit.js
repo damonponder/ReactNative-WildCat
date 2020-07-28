@@ -21,8 +21,6 @@ import axios from 'axios';
 };
 
 handleSubmit = () => {
-    console.log('handling observation info');
-    console.log('env -------',this.props.formData.form.environmentalConditions)
     const options = {
       headers: {'Content-Type': 'application/json'},
     };
@@ -44,15 +42,14 @@ handleSubmit = () => {
           toolsAndEquipmentCategories: this.props.formData.form.toolsAndEquipmentCategories,
           procedureAndStandardsCategories: this.props.formData.form.procedureAndStandardsCategories,
           qualityRelatedCategories: this.props.formData.form.qualityRelatedCategories,
-        useofPPECategories: this.props.formData.form.useofPPECategories,
-        workingConditionsCategories: this.props.formData.form.workingConditionsCategories
+          useofPPECategories: this.props.formData.form.useofPPECategories,
+          workingConditionsCategories: this.props.formData.form.workingConditionsCategories
         },
         options
       )
       .then((response) => response.data)
       .then((json) => {
         console.log(json);
-       
       })
       .then(() => {
         this.props.actions.clearForm();

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export class Register extends React.Component {
   constructor(props) {
@@ -18,8 +19,6 @@ export class Register extends React.Component {
   };
 
 handleSignUp = () => {
-  console.log('handling registration');
-  console.log(this.state)
   const options = {
     headers: {'Content-Type': 'application/json'},
   };
@@ -39,7 +38,6 @@ handleSignUp = () => {
     )
     .then((response) => response.data)
     .then((json) => {
-      console.log(json);
       this.props.actions.add(
         json.token,
         this.state.username,
@@ -56,14 +54,13 @@ handleSignUp = () => {
       }
     })
     .catch((error) => {
-      console.log(error);
     });
 };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{flex: 1, justifyContent: 'center',alignItems:'center'}}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
             {' '}
             Registration Form{' '}
@@ -98,25 +95,12 @@ handleSignUp = () => {
             value={this.state.password2}
             onChangeText={(password2) => this.setState({password2: password2})}
           />
-          <Button
-            onPress={() => {
-              this.handleSignUp()
-            }}
-            color="blue"
-            style={{
-              paddingTop: 100,
-              height: 30,
-              width: 100,
-              borderWidth: 2,
-              borderColor: 'black',
-            }}
-            title={'Registration'}></Button>
-          <Button
-            onPress={() => {
+            <TouchableOpacity onPress={() => {
+                this.handleSignUp();
+              }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Registration</Text></TouchableOpacity>            
+              <TouchableOpacity  onPress={() => {
               this.props.navigation.navigate('SignIn');
-            }}
-            style={{fontSize: 14, color: 'red', backgroundColor: 'red'}}
-            title="Already have an account? Sign in here."></Button>
+            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:370,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Already have an account? Sign in here!</Text></TouchableOpacity>
         </View>
       </View>
     );

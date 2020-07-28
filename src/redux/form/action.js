@@ -1,7 +1,6 @@
 import * as types from './constants'
 
 export function addInfo(submittedBy,locationOrArea,date,department,responsibleSupervisor) {
-    console.log('hit add function');
     return {
       type: types.SUBMITTEDBY,
       payload: {
@@ -42,7 +41,6 @@ export function addInfo(submittedBy,locationOrArea,date,department,responsibleSu
       }
   }
   export function addEnvironmentalConditions(environmentalConditionCategories){
-      console.log('evn cat in action',environmentalConditionCategories)
     return {
         type: types.ENVIRONMENTALCONDITIONS,
         payload:{

@@ -7,7 +7,6 @@ export function remove(){
   }}}
 export const verify = () => ({type: types.VERIFY});
 export function add(token, email, roles, isAuthenticated) {
-  console.log('hit add function');
   return {
     type: types.ADD,
     payload: {

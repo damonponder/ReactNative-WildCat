@@ -37,7 +37,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.selectedType}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({selectedType:value})}}
         />
         </View>
@@ -48,7 +47,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -59,7 +57,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -70,7 +67,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -81,7 +77,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -92,7 +87,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -103,7 +97,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -114,7 +107,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -125,7 +117,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.environmentalIssue}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({environmentalIssue:value})}}
         />
         </View>
@@ -171,7 +162,6 @@ storeAndNavigate(){
     if(this.state.selectedType===true){
         selections.push('CommentonSuggestions')
     }
-    console.log('sitatuon 1', selections);
     this.props.actions.addBodyPositions(
       selections
       );

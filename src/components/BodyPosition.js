@@ -45,7 +45,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.AscendingDescinding}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({AscendingDescinding:value})}}
         />
         <Text style={styles.text}>
@@ -58,7 +57,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Bending}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Bending:value})}}
         />
         <Text style={styles.text}>
@@ -70,7 +68,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Carrying}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Carrying:value})}}
         />
         <Text style={styles.text}>
@@ -82,7 +79,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.EyesOnTask}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({EyesOnTask:value})}}
         />
         <Text style={styles.text}>
@@ -94,7 +90,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Force}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Force:value})}}
         />
         <Text style={styles.text}>
@@ -106,7 +101,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Grip}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Grip:value})}}
         />
          <Text style={styles.text}>
@@ -118,7 +112,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Lifting}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Lifting:value})}}
         />
         <Text style={styles.text}>
@@ -130,7 +123,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.LineOfFire}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({LineOfFire:value})}}
         />
         <Text style={styles.text}>
@@ -142,7 +134,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.PinchPoints}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({PinchPoints:value})}}
         />
         <Text style={styles.text}>
@@ -154,7 +145,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Posture}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Posture:value})}}
         />
         <Text style={styles.text}>
@@ -166,7 +156,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.PullingPushing}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({PullingPushing:value})}}
         />
         <Text style={styles.text}>
@@ -178,7 +167,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Repetitive}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Repetitive:value})}}
         />
         <Text style={styles.text}>
@@ -190,7 +178,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Stooping}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Stooping:value})}}
         />
         <Text style={styles.text}>
@@ -202,7 +189,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Twisting}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Twisting:value})}}
         />
         <Text style={styles.text}>
@@ -219,7 +205,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
 
 storeAndNavigate(){
     var bodySelections = []
-    console.log('state at the top', this.state);
     if(this.state.AscendingDescinding===true){
         bodySelections.push("Ascending/Descinding")
     }

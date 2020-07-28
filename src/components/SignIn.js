@@ -20,7 +20,6 @@ class SignIn extends React.Component {
   }
 
   handleSignIn = () => {
-    console.log('handling sign in');
     const options = {
       headers: {'Content-Type': 'application/json'},
     };
@@ -38,7 +37,6 @@ class SignIn extends React.Component {
       )
       .then((response) => response.data)
       .then((json) => {
-        console.log(json);
         this.props.actions.add(
           json.accessToken,
           this.state.username,
@@ -55,7 +53,6 @@ class SignIn extends React.Component {
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
@@ -87,12 +84,10 @@ class SignIn extends React.Component {
             <TouchableOpacity onPress={() => {
               this.handleSignIn();
             }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Sign In</Text></TouchableOpacity>
-          <Button
-            onPress={() => {
+            
+            <TouchableOpacity onPress={() => {
               this.props.navigation.navigate('Register');
-            }}
-            style={{fontSize: 14, color: 'red', backgroundColor: 'red'}}
-            title="Don't have an account? Register Here."/>
+            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:350,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Don't have an account? Register Here!</Text></TouchableOpacity>
         </View>
       </Fragment>
     );

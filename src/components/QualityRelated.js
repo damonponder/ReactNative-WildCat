@@ -39,7 +39,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.CustomerSat}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({CustomerSat:value})}}
         />
          <Text style={styles.text}>
@@ -51,7 +50,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Design}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Design:value})}}
         />
          <Text style={styles.text}>
@@ -63,7 +61,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Drafting}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Drafting:value})}}
         />
         <Text style={styles.text}>
@@ -75,7 +72,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Engineering}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Engineering:value})}}
         />
         <Text style={styles.text}>
@@ -87,7 +83,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.EquipOperation}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({EquipOperation:value})}}
         />
         <Text style={styles.text}>
@@ -99,7 +94,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.FieldCommision}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({FieldCommision:value})}}
         />
         <Text style={styles.text}>
@@ -111,7 +105,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Manufacturing}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Manufacturing:value})}}
         />
         <Text style={styles.text}>
@@ -123,7 +116,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.OnTimeDelivery}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({OnTimeDelivery:value})}}
         />
         <Text style={styles.text}>
@@ -135,7 +127,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.ProcessandSystem}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({ProcessandSystem:value})}}
         />
         <Text style={styles.text}>
@@ -147,7 +138,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Sales}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Sales:value})}}
         />
          <Text style={styles.text}>
@@ -159,7 +149,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Specifications}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Specifications:value})}}
         />
          <Text style={styles.text}>
@@ -171,7 +160,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Supplier}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Supplier:value})}}
         />
          <Text style={styles.text}>
@@ -183,7 +171,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Vender}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Vender:value})}}
         />
          <Text style={styles.text}>
@@ -195,7 +182,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.TestRun}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({TestRun:value})}}
         />
         <Text style={styles.text}>

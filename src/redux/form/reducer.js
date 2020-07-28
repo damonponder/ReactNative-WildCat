@@ -41,34 +41,26 @@ export default function formReducer(state = initialState, action) {
             categoryDescription: action.payload.categoryDescription
         };
     case types.BODYPOSITIONS:
-        
-        const newBodyPositionCategories = state.bodyPositionCategories.concat(action.payload.bodyPositionCategories);
         return {
             ...state,
-            bodyPositionCategories:newBodyPositionCategories
-
+            bodyPositionCategories:action.payload.bodyPositionCategories
         }
     case types.ENVIRONMENTALCONDITIONS:
-        console.log(action.payload.environmentalConditionCategories)
-        const newEnvironmentalConditionCategories = state.environmentalConditions.concat(action.payload.environmentalConditionCategories);
         return {
             ...state,
-            environmentalConditions:newEnvironmentalConditionCategories
-    
+            environmentalConditions:action.payload.environmentalConditionCategories
         }
-        case types.HEALTHCATEGORIES:
+    case types.HEALTHCATEGORIES:
         return {
             ...state,
             healthCategories:action.payload.healthCategories
-    
         }
-        case types.PROCEDUREANDSTANDARDSCATEGORIES:
+    case types.PROCEDUREANDSTANDARDSCATEGORIES:
         return {
             ...state,
             procedureAndStandardsCategories:action.payload.procedureAndStandardsCategories
-    
         }
-        case types.TOOLSANDEQUIPMENTCATEGORIES:
+    case types.TOOLSANDEQUIPMENTCATEGORIES:
         return {
             ...state,
             toolsAndEquipmentCategories:action.payload.toolsAndEquipmentCategories

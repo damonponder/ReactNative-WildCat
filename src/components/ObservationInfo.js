@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 import { StyleSheet, Text,View, TextInput, SafeAreaView, ScrollView,FlatList, Button, Alert } from 'react-native';
 import DatePicker from 'react-native-datepicker'
 import DropDownPicker from 'react-native-dropdown-picker';
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {scale} from '../../util/functions'
 
 
  class ObservationInfo extends React.Component {
@@ -131,7 +132,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
         onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
         <View style={styles.submitButton}>
         <Text style={{fontSize: 16, textAlign: 'center'}}>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Submit Form User Info</Text></TouchableOpacity>
         </View>
     </SafeAreaView>
   );

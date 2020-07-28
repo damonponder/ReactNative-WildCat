@@ -5,23 +5,26 @@ import {bindActionCreators} from 'redux';
 import * as jwtActions from '../redux/jwt/actions';
 import {connect} from 'react-redux';
 import {scale} from '../../util/functions'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 class Dashboard extends React.Component {
   render() {
   return (
     <SafeAreaView style={styles.container}>
         <Text style={styles.text}>
-          Form Dashboard
+          Forms Dashboard
         </Text>
         <View style={{justifyContent:'space-between',flexDirection:'column',height:scale(100),marginTop:scale(20)}}>
-        <Button style={{marginBottom:scale(20)}} color={'black'} textColor={'#FEE53B'} title={'Observation Card'} onPress={() => {this.props.navigation.navigate('ObservationInfo')}}/>
-        <Button style={styles.buttonSpacing} color={'black'} title={'Logout'} onPress={() => {this.logout()}}><Text style={[{color:'#FEE53B'},]}>Logout</Text></Button>
+        <TouchableOpacity onPress={() => {this.props.navigation.navigate('ObservationInfo')}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Observation Card</Text></TouchableOpacity>
+            
+        <TouchableOpacity onPress={() => {this.logout()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Logout</Text></TouchableOpacity>
+
         
         </View>
     </SafeAreaView>
   );
 }
 check(){
-  console.log('props check: ',this.props.verify)
 }
 logout(){
   this.props.actions.remove()
@@ -45,8 +48,10 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(40),
   },
   text: {
-    fontSize: scale(22),
-    marginTop:scale(20)
+    fontSize: scale(26),
+    marginTop:scale(20),
+    color:'black',
+    fontWeight:'bold'
   },
 });
 

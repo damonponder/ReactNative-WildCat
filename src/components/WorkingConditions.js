@@ -36,7 +36,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.BuildingandStructure}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({BuildingandStructure:value})}}
         />
         <Text style={styles.text}>
@@ -48,7 +47,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.AnimalsandInsects}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({AnimalsandInsects:value})}}
         />
         <Text style={styles.text}>
@@ -60,7 +58,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.ElectricalHazard}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({ElectricalHazard:value})}}
         />
         <Text style={styles.text}>
@@ -72,7 +69,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.ElevatedHeights}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({ElevatedHeights:value})}}
         />
         <Text style={styles.text}>
@@ -84,7 +80,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Housekeeping}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Housekeeping:value})}}
         />
          <Text style={styles.text}>
@@ -96,7 +91,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.LightingandVisibility}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({LightingandVisibility:value})}}
         />
          <Text style={styles.text}>
@@ -108,7 +102,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.WalkingSurfaces}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({WalkingSurfaces:value})}}
         />
         <Text style={styles.text}>
@@ -120,7 +113,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.HazardousAtmosphere}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({HazardousAtmosphere:value})}}
         />
          <Text style={styles.text}>
@@ -132,7 +124,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.WorkingSurfaces}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({WorkingSurfaces:value})}}
         />
          <Text style={styles.text}>
@@ -143,7 +134,6 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
         <CheckBox
         value={this.state.Weather}
           onValueChange={(value) => {
-              console.log('value: ', value)
               this.setState({Weather:value})}}
         />
          <Text style={styles.text}>
