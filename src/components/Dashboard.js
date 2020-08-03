@@ -15,9 +15,9 @@ class Dashboard extends React.Component {
           Forms Dashboard
         </Text>
         <View style={{justifyContent:'space-between',flexDirection:'column',height:scale(100),marginTop:scale(20)}}>
-        <TouchableOpacity onPress={() => {this.props.navigation.navigate('ObservationInfo')}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Observation Card</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => {this.props.navigation.navigate('ObservationInfo')}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Observation Card</Text></TouchableOpacity>
             
-        <TouchableOpacity onPress={() => {this.logout()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Logout</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => {this.logout()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Logout</Text></TouchableOpacity>
 
         
         </View>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginTop:scale(15)
   },
   container: {
-    flex: 1,
+    flex: scale(1),
     alignItems:'center'
     // marginTop: Constants.statusBarHeight,
   },

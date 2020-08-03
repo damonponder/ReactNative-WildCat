@@ -57,7 +57,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
         
         onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
         
-        <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
+        <Text style={{marginTop:scale(40)}}>To Proceed to the next Screen</Text>
         <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
       </ScrollView>
     </SafeAreaView>
@@ -77,16 +77,16 @@ storeAndNavigate(index){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'yellow',
       },
   container: {
-    flex: 1,
-    paddingTop:40,
+    flex: scale(1),
+    paddingTop:scale(40),
     alignItems:'center'
     // marginTop: Constants.statusBarHeight,
   },
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
-    fontSize: 14,
+    fontSize: scale(14),
     color: 'black'
   },
 });

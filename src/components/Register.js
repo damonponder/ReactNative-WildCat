@@ -60,7 +60,7 @@ handleSignUp = () => {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1, justifyContent: 'center',alignItems:'center'}}>
+        <View style={{flex: scale(1), justifyContent: 'center',alignItems:'center'}}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
             {' '}
             Registration Form{' '}
@@ -97,10 +97,10 @@ handleSignUp = () => {
           />
             <TouchableOpacity onPress={() => {
                 this.handleSignUp();
-              }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Registration</Text></TouchableOpacity>            
+              }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Registration</Text></TouchableOpacity>            
               <TouchableOpacity  onPress={() => {
               this.props.navigation.navigate('SignIn');
-            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:370,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Already have an account? Sign in here!</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(370),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Already have an account? Sign in here!</Text></TouchableOpacity>
         </View>
       </View>
     );
@@ -108,33 +108,33 @@ handleSignUp = () => {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: scale(1),
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
+    height: scale(50),
   },
 
   formLabel: {
-    fontSize: 20,
+    fontSize: scale(20),
     color: 'black',
   },
   inputStyle: {
-    marginTop: 20,
-    width: 300,
-    height: 40,
-    paddingHorizontal: 10,
-    borderRadius: 50,
+    marginTop: scale(20),
+    width: scale(300),
+    height: scale(40),
+    paddingHorizontal: scale(10),
+    borderRadius: scale(50),
     backgroundColor: '#DCDCDC',
   },
   formText: {
     alignItems: 'center',
     justifyContent: 'center',
     color: '#fff',
-    fontSize: 20,
+    fontSize: scale(20),
   },
   text: {
     color: 'black',
-    fontSize: 20,
+    fontSize: scale(20),
   },
 });

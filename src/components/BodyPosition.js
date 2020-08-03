@@ -3,6 +3,10 @@ import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+
+
 
  class BodyPosition extends React.Component {
     constructor(props){
@@ -35,35 +39,41 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <View style={{flex:1,flexDirection:'row'}}>
-        <Text style={styles.text}>
-         Ascending/Descending
-        </Text>
       
-        </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+       
+        <View style={{flex:scale(1),flexDirection:'row'}}>
         <CheckBox
         value={this.state.AscendingDescinding}
           onValueChange={(value) => {
               this.setState({AscendingDescinding:value})}}
         />
-        <Text style={styles.text}>
-         Bending
+         <Text style={styles.text}>
+         Ascending/Descending
         </Text>
-       
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
-        
+
+       
+        <View style={{flex:scale(1),flexDirection:'row'}}>
         <CheckBox
         value={this.state.Bending}
           onValueChange={(value) => {
               this.setState({Bending:value})}}
         />
-        <Text style={styles.text}>
-         Carrying
-         </Text>
+         <Text style={styles.text}>
+         Bending
+        </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <CheckBox
+        value={this.state.Carrying}
+          onValueChange={(value) => {
+              this.setState({Carrying:value})}}
+        />
+         <Text style={styles.text}>
+         Carrying
+        </Text>
+        </View>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Carrying}
@@ -74,7 +84,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Eyes on Task/Hands
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.EyesOnTask}
@@ -85,7 +95,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Force
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Force}
@@ -96,7 +106,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Grip
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Grip}
@@ -107,7 +117,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Lifting 
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Lifting}
@@ -118,7 +128,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Line of Fire
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.LineOfFire}
@@ -129,7 +139,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Pinch Points
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.PinchPoints}
@@ -140,7 +150,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Posture
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Posture}
@@ -151,7 +161,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Pulling/Pushing
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.PullingPushing}
@@ -162,7 +172,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Repetitive Motion
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Repetitive}
@@ -173,7 +183,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Stooping
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Stooping}
@@ -184,7 +194,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Twisting
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Twisting}
@@ -195,9 +205,10 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Under Suspended Load
         </Text>
         </View>
-       
-        <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+       <View style={{alignItems:'center'}}>
+        <Text style={{marginTop:scale(25), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
+        </View>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scael(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -264,27 +275,27 @@ if(this.state.Suspended===true){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'yellow',
       },
   container: {
-    flex: 1,
-    paddingTop:40,
+    flex: scale(1),
+    paddingTop:scale(40),
     alignItems:'center'
     // marginTop: Constants.statusBarHeight,
   },
 
   scrollView: {
    // backgroundColor: 'black',
-    marginHorizontal: 20,
+    marginHorizontal: scale(20),
   },
   text: {
-    marginTop:5,
-    fontSize: 14,
+    marginTop:scale(5),
+    fontSize: scale(14),
     color: 'black'
   },
 });

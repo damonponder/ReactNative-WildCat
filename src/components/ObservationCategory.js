@@ -2,8 +2,9 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
-import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Alert, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Alert, Button, View } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -37,23 +38,28 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>
-         Observation Category
+        <View >
+        <Text style={{fontWeight:'bold', fontSize:scale(16), color:'black'}}>
+         Observation Category:
         </Text>
+        </View>
+        <View style={{marginTop:scale(25)}}>
         <RadioForm
           radio_props={radio_props}
           initial={""}
           onPress={(value) => {this.setState({selectedType:value})}}
         />
-        {/* <TextInput style={styles.inputStyle}
-        
-        onChangeText={(submittedBy) => this.setState({submittedBy: submittedBy})}></TextInput> */}
+        </View>
+        <View style={{marginTop:scale(20)}}>
          <TextInput
-        style={{ height: 100 , borderColor: 'gray', borderWidth: 1 }}
+        style={{ height: scale(100) , borderColor: 'gray', borderWidth: scale(1) }}
         onChangeText={(description) => this.setState({description:description})}
         />
-        <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+        </View>
+        <View style={{alignItems:'center'}}>
+        <Text style={{marginTop:scale(25), fontSize:scale(16),fontWeight:'bold'}}>To Proceed to the next Screen</Text>
+        </View>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -76,26 +82,26 @@ storeAndNavigate(index){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'yellow',
       },
   container: {
-    flex: 1,
-    paddingTop:40,
+    flex: scale(1),
+    paddingTop:scale(40),
     alignItems:'center'
     // marginTop: Constants.statusBarHeight,
   },
 
   scrollView: {
    // backgroundColor: 'black',
-    marginHorizontal: 20,
+    marginHorizontal: scale(20),
   },
   text: {
-    fontSize: 14,
+    fontSize: scale(14),
     color: 'black'
   },
 });

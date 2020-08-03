@@ -7,6 +7,7 @@ import DatePicker from 'react-native-datepicker'
 import DropDownPicker from 'react-native-dropdown-picker';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
+import { ScreenStackHeaderCenterView } from 'react-native-screens';
 
 
  class ObservationInfo extends React.Component {
@@ -32,7 +33,7 @@ import {scale} from '../../util/functions'
     const {date} = this.state;
 
     return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
         <Text style={styles.text}>
          Submitted By
         </Text>
@@ -62,7 +63,7 @@ import {scale} from '../../util/functions'
          {label: '3rd Party Location', value: '3rd Party Location' }
      ]}
      defaultValue={"Corporate"}
-     containerStyle={{width: 250, height: 40}}
+     containerStyle={{width: scale(250), height: scale(40)}}
      style={{backgroundColor: '#fafafa'}}
      itemStyle={{
          justifyContent: 'flex-start'
@@ -75,7 +76,7 @@ import {scale} from '../../util/functions'
         <Text style={styles.text}>Observation Date</Text>
 
       <DatePicker
-        style={{width: 200}}
+        style={{width: scale(200)}}
         date={new Date()}
         mode="date"
         placeholder="select date"
@@ -85,12 +86,12 @@ import {scale} from '../../util/functions'
         customStyles={{
           dateIcon: {
             position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
+            left: scale(0),
+            top: scale(4),
+            marginLeft: scale(0)
           },
           dateInput: {
-            marginLeft: 36
+            marginLeft: scale(36)
           }
           // ... You can check the source to find the other keys.
         }}
@@ -114,7 +115,7 @@ import {scale} from '../../util/functions'
                 {label: 'Sales', value: 'Sales' }
             ]}
      defaultValue={"Shop"}
-     containerStyle={{width: 250, height: 40}}
+     containerStyle={{width: scale(250), height: scale(40)}}
      style={{backgroundColor: '#fafafa'}}
      itemStyle={{
          justifyContent: 'flex-start'
@@ -131,10 +132,10 @@ import {scale} from '../../util/functions'
         
         onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
         <View style={styles.submitButton}>
-        <Text style={{fontSize: 16, textAlign: 'center'}}>To Proceed to the next Screen</Text>
+        <Text style={{fontSize: scale(16), textAlign: 'center'}}>To Proceed to the next Screen</Text>
         <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Submit Form User Info</Text></TouchableOpacity>
         </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -164,33 +165,29 @@ storeAndNavigate(){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
-        borderWidth: 1,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
+        borderWidth: scale(1),
         backgroundColor: 'white',
       },
   container: {
-    flex: 1,
-    // marginTop: Constants.statusBarHeight,
+    alignItems:'center',
+    marginTop:scale(20)
+    
   },
 
-  scrollView: {
-    backgroundColor: 'white',
-    marginHorizontal: 20,
-  },
   text: {
-    fontSize: 14,
-    color: 'black'
+    fontSize: scale(14),
+    fontWeight:'bold',
+    color: 'black',
+    marginTop: scale(10)
   },
   submitButton: {
-   // position: 'absolute',
-   marginTop:20,
+   marginTop:scale(20),
     alignItems: 'center',
-   // marginLeft: 100,
-   // bottom:100,
   }
 });
 

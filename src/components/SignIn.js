@@ -60,7 +60,7 @@ class SignIn extends React.Component {
     return (
       <Fragment>
       <View style={{backgroundColor:'white'}}>
-        <Image style={{width:335, height:250,marginLeft:30, alignItems:'center', backgroundColor:'white'}} source={WOTLOGO}/>
+        <Image style={{width:scale(335), height:scale(250),marginLeft:scale(30), alignItems:'center', backgroundColor:'white'}} source={WOTLOGO}/>
       </View>
       <View style={styles.container}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
@@ -83,11 +83,11 @@ class SignIn extends React.Component {
          
             <TouchableOpacity onPress={() => {
               this.handleSignIn();
-            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Sign In</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Sign In</Text></TouchableOpacity>
             
             <TouchableOpacity onPress={() => {
               this.props.navigation.navigate('Register');
-            }} style={{borderRadius:10,borderWidth:1,borderColor:'black',width:350,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Don't have an account? Register Here!</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
         </View>
       </Fragment>
     );
@@ -96,34 +96,34 @@ class SignIn extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: scale(1),
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
+    height: scale(50),
   },
 
   formLabel: {
-    fontSize: 20,
+    fontSize: scale(20),
     color: 'black',
   },
   inputStyle: {
-    marginTop: 20,
-    width: 300,
-    height: 40,
-    paddingHorizontal: 10,
-    borderRadius: 50,
+    marginTop: scale(20),
+    width: scale(300),
+    height: scale(40),
+    paddingHorizontal: scale(10),
+    borderRadius: scale(50),
     backgroundColor: '#DCDCDC',
   },
   formText: {
     alignItems: 'center',
     justifyContent: 'center',
     color: '#fff',
-    fontSize: 20,
+    fontSize: scale(20),
   },
   text: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: scale(20),
   },
 });
 

@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
  class WorkingConditions extends React.Component {
     constructor(props){
         super(props)
@@ -31,7 +31,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.BuildingandStructure}
@@ -42,7 +42,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Building/Structures
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.AnimalsandInsects}
@@ -53,7 +53,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Animals/Insects
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.ElectricalHazard}
@@ -64,7 +64,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Electrical Hazard
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.ElevatedHeights}
@@ -75,7 +75,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Elevated Heights
          </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Housekeeping}
@@ -86,7 +86,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Housekeeping
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.LightingandVisibility}
@@ -97,7 +97,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Lighting/Visibility
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.WalkingSurfaces}
@@ -108,7 +108,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Walking Surfaces
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.HazardousAtmosphere}
@@ -119,7 +119,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Hazardous Atmosphere
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.WorkingSurfaces}
@@ -130,7 +130,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Working Surfaces
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
         <CheckBox
         value={this.state.Weather}
           onValueChange={(value) => {
@@ -140,8 +140,12 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Weather
         </Text>
         </View>
-        <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+        <View style={{alignItems:'center'}}>
+        <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
+        </View>
+        <View style={{marginTop:scale(15)}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -185,26 +189,24 @@ storeAndNavigate(){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'yellow',
       },
   container: {
-    flex: 1,
-    paddingTop:40,
+    flex: scale(1),
+    paddingTop:scale(40),
     alignItems:'center'
-    // marginTop: Constants.statusBarHeight,
   },
 
   scrollView: {
-   // backgroundColor: 'black',
-    marginHorizontal: 20,
+    marginHorizontal: scale(20),
   },
   text: {
-    fontSize: 14,
+    fontSize: scale(14),
     color: 'black'
   },
 });

@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
  class ToolandEquipment extends React.Component {
     constructor(props){
         super(props)
@@ -35,7 +35,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Condition
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Selection}
@@ -46,7 +46,7 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Selection
         </Text>
         </View>
-        <View style={{flex:1,flexDirection:'row'}}>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
        
         <CheckBox
         value={this.state.Use}
@@ -57,8 +57,12 @@ import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Aler
          Use
          </Text>
         </View>
-        <Text style={{marginTop:40}}>To Proceed to the next Screen</Text>
-        <Button title={'Submit Form User Info'} onPress={() => {this.storeAndNavigate()}}></Button>
+        <View style={{alignItems:'center'}}>
+        <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
+        </View>
+        <View style={{marginTop:scale(15)}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -86,26 +90,26 @@ storeAndNavigate(){
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'yellow',
       },
   container: {
-    flex: 1,
-    paddingTop:40,
+    flex: scale(1),
+    paddingTop:scale(40),
     alignItems:'center'
     // marginTop: Constants.statusBarHeight,
   },
 
   scrollView: {
    // backgroundColor: 'black',
-    marginHorizontal: 20,
+    marginHorizontal: scale(20),
   },
   text: {
-    fontSize: 14,
+    fontSize: scale(14),
     color: 'black'
   },
 });

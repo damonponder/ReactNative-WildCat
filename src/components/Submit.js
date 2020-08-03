@@ -5,6 +5,10 @@ import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Image, Button, Alert, View } from 'react-native';
 import {WOTLOGO} from '../../Images/logoIndex'
 import axios from 'axios';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+
+
 
  class Submit extends React.Component {
     constructor(props){
@@ -84,15 +88,15 @@ handleSubmit = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={{alignItems:'center', fontSize:20, marginTop:50}}>
-        <Text style={{fontSize: 16}}>Please Verify your Final Submital of this Form</Text>
+        <Text style={{fontSize: scale(16), fontWeight:'bold'}}>Please Verify your Final Submital of this Form</Text>
         </View>
-        <View style={{alignItem:'center', marginTop:100}}>
-        <Button title={'Submit Form'} onPress={this.handleSubmit}/>
+        <View style={{alignItem:'center', marginTop:scale(100)}}>
+        <TouchableOpacity onPress={this.handleSubmit} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM</Text></TouchableOpacity>
         </View>
         </ScrollView>
     </SafeAreaView>
     <View style={{backgroundColor:'white'}}>
-    <Image style={{width:270, height:200, backgroundColor:'white',marginLeft:75, marginBottom: 20}} source={WOTLOGO}/>
+    <Image style={{width:scale(270), height:scale(200), backgroundColor:'white',marginLeft:scale(75), marginBottom: scale(20)}} source={WOTLOGO}/>
   </View>
   </Fragment>
   );
@@ -101,25 +105,25 @@ handleSubmit = () => {
 
 const styles = StyleSheet.create({
     inputStyle: {
-        marginTop: 20,
-        width: 300,
-        height: 40,
-        paddingHorizontal: 10,
-        borderRadius: 50,
+        marginTop: scale(20),
+        width: scale(300),
+        height: scale(40),
+        paddingHorizontal: scale(10),
+        borderRadius: scale(50),
         backgroundColor: 'white',
       },
   container: {
-    flex: 1,
+    flex: scale(1),
     // marginTop: Constants.statusBarHeight,
     backgroundColor:'white'
   },
 
   scrollView: {
     backgroundColor: 'white',
-    marginHorizontal: 20,
+    marginHorizontal: scale(20),
   },
   text: {
-    fontSize: 14,
+    fontSize: scale(14),
     color: 'black'
   },
 });
