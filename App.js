@@ -40,17 +40,17 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 function HomeScreen({navigation}) {
   //navigation param is passed to every screen component
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
-      <Image style={{height:200, width:270, marginBottom:50}} source={ WOTLOGO }/>
-      <Text style={{color: 'black',fontSize: 18, marginBottom: 20}}>WildCat Safety Tools - Safety Always!</Text>
+    <View style={{flex: scale(1), alignItems: 'center', justifyContent: 'center', backgroundColor: 'white'}}>
+      <Image style={{height:scale(200), width:scale(270), marginBottom:scale(50)}} source={ WOTLOGO }/>
+      <Text style={{color: 'black',fontSize: scale(18), marginBottom: scale(20)}}>WildCat Safety Tools - Safety Always!</Text>
       <TouchableOpacity  onPress={() => {
               navigation.navigate('SignIn');
             }}
-           style={{borderRadius:10,borderWidth:1,borderColor:'black',width:150,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Get Started</Text></TouchableOpacity>
+           style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Get Started</Text></TouchableOpacity>
           <TouchableOpacity  onPress={() => {
               navigation.navigate('Register');
             }}
-           style={{borderRadius:10,borderWidth:1,borderColor:'black',width:350,alignItems:'center',backgroundColor:'black',padding:5}}><Text style={{color:'#FEE53B',fontSize:20}}>Don't have an account? Register Here!</Text></TouchableOpacity>
+           style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
     </View>
   );
 }
@@ -103,23 +103,23 @@ const styles = StyleSheet.create({
   },
   engine: {
     position: 'absolute',
-    right: 0,
+    right: scale(0),
   },
   body: {
     backgroundColor: 'black',
   },
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    marginTop: scale(32),
+    paddingHorizontal: scale(24),
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: scale(24),
     fontWeight: '600',
     color: Colors.black,
   },
   sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
+    marginTop: scale(8),
+    fontSize: scale(18),
     fontWeight: '400',
     color: Colors.dark,
   },
@@ -128,10 +128,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     color: Colors.dark,
-    fontSize: 12,
+    fontSize: scale(12),
     fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
+    padding: scale(4),
+    paddingRight: scale(12),
     textAlign: 'right',
   },
 });
