@@ -84,11 +84,11 @@ class SignIn extends React.Component {
          
             <TouchableOpacity onPress={() => {
               this.handleSignIn();
-            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:10}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Sign In</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:scale(10)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Sign In</Text></TouchableOpacity>
             
             <TouchableOpacity onPress={() => {
               this.props.navigation.navigate('Register');
-            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:10}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:scale(10)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
         </View>
       </Fragment>
     );
