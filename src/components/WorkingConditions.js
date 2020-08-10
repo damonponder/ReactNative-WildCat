@@ -23,6 +23,7 @@ class WorkingConditions extends React.Component {
                 WalkingSurfaces:null,
                 HazardousAtmosphere:null,
                 WorkingSurfaces:null,
+                WellConditions: null,
                 Weather:null
                 
             
@@ -137,6 +138,16 @@ class WorkingConditions extends React.Component {
         </View>
         <View style={{flex:scale(1),flexDirection:'row'}}>
         <CheckBox
+        value={this.state.WellConditions}
+          onValueChange={(value) => {
+              this.setState({WellConditions:value})}}
+        />
+         <Text style={styles.text}>
+         Well Conditions
+        </Text>
+        </View>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <CheckBox
         value={this.state.Weather}
           onValueChange={(value) => {
               this.setState({Weather:value})}}
@@ -179,6 +190,9 @@ storeAndNavigate(){
     }
     if(this.state.WorkingSurfaces===true){
         workingConditionselections.push('Working Surfaces')
+    }
+    if (this.state.WellConditions===true) {
+      workingConditionselections.push('Well Conditions')
     }
     if(this.state.Weather===true){
       workingConditionselections.push('Weather')

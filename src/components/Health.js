@@ -20,6 +20,7 @@ import {scale} from '../../util/functions'
                 Noise:null,
                 Radiation:null,
                 SkinContact:null,
+                Illness:null
                 
             
     }
@@ -123,6 +124,17 @@ import {scale} from '../../util/functions'
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
         </View>
+        <View style={{flex:scale(1),flexDirection:'row'}}>
+        
+        <CheckBox
+        value={this.state.Illness}
+          onValueChange={(value) => {
+              this.setState({Illness:value})}}
+        />
+        <Text style={styles.text}>
+         Illness
+        </Text>
+        </View>
         <View style={{marginTop:scale(15)}}>
         <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
         </View>
@@ -154,6 +166,9 @@ storeAndNavigate(){
     }
     if(this.state.SkinContact===true){
         healthSelections.push('Skin Contact')
+    }
+    if(this.state.Illness===true) {
+      healthSelections.push('Illness')
     }
     
     this.props.actions.addHealthCategories(
