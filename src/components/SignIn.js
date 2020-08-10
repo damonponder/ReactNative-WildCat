@@ -6,6 +6,7 @@ import * as jwtActions from '../redux/jwt/actions';
 import {connect} from 'react-redux';
 import {WOTLOGO} from '../../Images/logoIndex'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {scale} from '../../util/functions'
 
 
 
@@ -26,7 +27,7 @@ class SignIn extends React.Component {
 
     axios
       .post(
-        'http://10.0.2.2:8080/api/auth/signin',
+        'http://52.14.115.8/api/auth/signin',
 
         {
           username: this.state.username,
@@ -60,7 +61,7 @@ class SignIn extends React.Component {
     return (
       <Fragment>
       <View style={{backgroundColor:'white'}}>
-        <Image style={{width:scale(335), height:scale(250),marginLeft:scale(30), alignItems:'center', backgroundColor:'white'}} source={WOTLOGO}/>
+        <Image style={{width:scale(330), height:scale(250),marginLeft:scale(12), alignItems:'center', backgroundColor:'white'}} source={WOTLOGO}/>
       </View>
       <View style={styles.container}>
           <Text style={[styles.formLabel, {alignSelf: 'center'}]}>
@@ -83,11 +84,11 @@ class SignIn extends React.Component {
          
             <TouchableOpacity onPress={() => {
               this.handleSignIn();
-            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Sign In</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:10}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Sign In</Text></TouchableOpacity>
             
             <TouchableOpacity onPress={() => {
               this.props.navigation.navigate('Register');
-            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:10}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Don't have an account? Register Here!</Text></TouchableOpacity>
         </View>
       </Fragment>
     );

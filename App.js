@@ -31,6 +31,7 @@ import WorkingConditions from './src/components/WorkingConditions';
 import Submit from './src/components/Submit';
 import { WOTLOGO } from './Images/logoIndex'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {scale} from './util/functions'
 
 
 

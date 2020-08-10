@@ -4,6 +4,7 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Button } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import {scale} from '../../util/functions'
 
 
 

@@ -2,6 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {scale} from '../../util/functions'
+
+
+
 
 export class Register extends React.Component {
   constructor(props) {
@@ -25,7 +29,7 @@ handleSignUp = () => {
 
   axios
     .post(
-      'http://10.0.2.2:8080/api/auth/signup',
+      'http://52.14.115.8/api/auth/signup',
 
       {
         firstname: this.state.firstname,
@@ -97,10 +101,10 @@ handleSignUp = () => {
           />
             <TouchableOpacity onPress={() => {
                 this.handleSignUp();
-              }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(150),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Registration</Text></TouchableOpacity>            
+              }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(191),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop:10}}><Text style={{color:'#FEE53B',fontSize:scale(18)}}>Registration Complete</Text></TouchableOpacity>            
               <TouchableOpacity  onPress={() => {
               this.props.navigation.navigate('SignIn');
-            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(370),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Already have an account? Sign in here!</Text></TouchableOpacity>
+            }} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(370),alignItems:'center',backgroundColor:'black',padding:scale(5), marginTop: 10}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Already have an account? Sign in here!</Text></TouchableOpacity>
         </View>
       </View>
     );

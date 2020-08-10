@@ -4,7 +4,12 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, View,Text, SafeAreaView, ScrollView, Button, CheckBox, Alert } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
- class UseofPPE extends React.Component {
+import {scale} from '../../util/functions'
+ 
+
+
+
+class UseofPPE extends React.Component {
     constructor(props){
         super(props)
 

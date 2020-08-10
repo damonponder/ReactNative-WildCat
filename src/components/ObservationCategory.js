@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Alert, Button, View } from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {scale} from '../../util/functions'
 
 
 

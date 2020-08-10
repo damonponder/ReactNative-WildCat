@@ -6,6 +6,7 @@ import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Image, Button, A
 import {WOTLOGO} from '../../Images/logoIndex'
 import axios from 'axios';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {scale} from '../../util/functions'
 
 
 
@@ -31,7 +32,7 @@ handleSubmit = () => {
 
     axios
       .post(
-        'http://10.0.2.2:8080/api/auth/observables',
+        'http://52.14.115.8/api/auth/observables',
   
         {
           submittedBy: this.props.formData.form.submittedBy ? this.props.formData.form.submittedBy : "",

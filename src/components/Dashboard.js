@@ -7,6 +7,9 @@ import {connect} from 'react-redux';
 import {scale} from '../../util/functions'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+
+
+
 class Dashboard extends React.Component {
   render() {
   return (
