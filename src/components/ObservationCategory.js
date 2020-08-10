@@ -69,7 +69,13 @@ import {scale} from '../../util/functions'
 storeAndNavigate(index){
   if(  this.state.selectedType === null || this.state.description === null ){
     Alert.alert("Missing Fields","Please fill in all fields.")
-   }else{
+  }
+  if ( this.state.selectedType === CommentOfSuggestion) {
+    return this.props.navigation.navigate('Submit')
+  }
+  if (this.state.selectedType === Other) {
+    return this.props.navigation.navigate('Submit');
+  }else{
     this.props.actions.addCategoryType(
        this.state.selectedType,
        this.state.description
