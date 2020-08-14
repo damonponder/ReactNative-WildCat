@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {WOTLOGO} from '../../Images/logoIndex'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
+import instance from '../../Axios/axios';
 
 
 
@@ -25,9 +26,7 @@ class SignIn extends React.Component {
       headers: {'Content-Type': 'application/json'},
     };
 
-    axios
-      .post(
-        'http://3.129.246.176:8080/api/auth/signin',
+      instance.post('/api/auth/signin',
 
         {
           username: this.state.username,
@@ -35,10 +34,9 @@ class SignIn extends React.Component {
 
         },
         options,
-      )
-      .then((response) => response.data)
+      ).then((response) => response.data)
       .then((json) => {
-        this.props.actions.add(
+        this.props.dispatch1(
           json.accessToken,
           this.state.username,
           json.roles,

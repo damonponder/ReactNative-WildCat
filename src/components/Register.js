@@ -3,6 +3,7 @@ import axios from 'axios';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
+import instance from './Axios/axios';
 
 
 
@@ -27,9 +28,7 @@ handleSignUp = () => {
     headers: {'Content-Type': 'application/json'},
   };
 
-  axios
-    .post(
-      'http://3.129.246.176:8080/api/auth/signup',
+  instance.post('/api/auth/signup',
 
       {
         firstname: this.state.firstname,
@@ -42,7 +41,7 @@ handleSignUp = () => {
     )
     .then((response) => response.data)
     .then((json) => {
-      this.props.actions.add(
+      this.props.dispath1(
         json.token,
         this.state.username,
         json.roles,
@@ -58,6 +57,7 @@ handleSignUp = () => {
       }
     })
     .catch((error) => {
+      console.log(error);
     });
 };
 

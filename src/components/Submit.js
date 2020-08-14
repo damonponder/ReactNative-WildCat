@@ -7,6 +7,7 @@ import {WOTLOGO} from '../../Images/logoIndex'
 import axios from 'axios';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
+import instance from './Axios/axios';
 
 
 
@@ -30,9 +31,7 @@ handleSubmit = () => {
       headers: {'Content-Type': 'application/json'},
     };
 
-    axios
-      .post(
-        'http://3.129.246.176:8080/api/auth/observables',
+    instance.post('/api/auth/observables',
   
         {
           submittedBy: this.props.formData.form.submittedBy ? this.props.formData.form.submittedBy : "",
@@ -55,6 +54,7 @@ handleSubmit = () => {
       .then((response) => response.data)
       .then((json) => {
         console.log(json);
+        if(json.error) return false;
       })
       .then(() => {
         this.props.actions.clearForm();
