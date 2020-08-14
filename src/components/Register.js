@@ -40,7 +40,7 @@ handleSignUp = () => {
     )
     .then((response) => response.data)
     .then((json) => {
-      this.props.dispath1(
+      this.props.dispatch1(
         json.token,
         this.state.username,
         json.roles,
