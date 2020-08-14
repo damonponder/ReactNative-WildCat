@@ -60,7 +60,9 @@ import {scale} from '../../util/functions'
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(25), fontSize:scale(16),fontWeight:'bold'}}>To Proceed to the next Screen</Text>
         </View>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
+        <View style={{alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(215),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -69,21 +71,24 @@ import {scale} from '../../util/functions'
 storeAndNavigate(index){
   if(  this.state.selectedType === null || this.state.description === null ){
     Alert.alert("Missing Fields","Please fill in all fields.")
-  }
-  if ( this.state.selectedType === CommentOfSuggestion) {
-    return this.props.navigation.navigate('Submit')
-  }
-  if (this.state.selectedType === Other) {
-    return this.props.navigation.navigate('Submit');
   }else{
-    this.props.actions.addCategoryType(
-       this.state.selectedType,
-       this.state.description
-    );
-    //navigate to page chosen
-    this.props.navigation.navigate(this.state.selectedType)
-    
-}
+    if ( this.state.selectedType === 'CommentofSuggestion') {
+      return this.props.navigation.navigate('Submit')
+    }
+    if (this.state.selectedType === 'Other') {
+      return this.props.navigation.navigate('Submit');
+    }else{
+      this.props.actions.addCategoryType(
+         this.state.selectedType,
+         this.state.description
+      );
+      //navigate to page chosen
+      this.props.navigation.navigate(this.state.selectedType)
+      
+  }
+  }
+
+ 
 }
  }
 

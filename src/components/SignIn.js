@@ -27,7 +27,7 @@ class SignIn extends React.Component {
 
     axios
       .post(
-        'http://52.14.115.8/api/auth/signin',
+        'http://3.129.246.176:8080/api/auth/signin',
 
         {
           username: this.state.username,
@@ -54,6 +54,7 @@ class SignIn extends React.Component {
         }
       })
       .catch((error) => {
+        console.log('sign in error',error)
       });
   };
 

@@ -70,17 +70,17 @@ const App: () => React$Node = () => {
 
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen options={{headerLeft:null}} name="ObservationInfo" component={ObservationInfo} />
-          <Stack.Screen name="ObservationType" component={ObservationType} />
-          <Stack.Screen name="ObservationCategory" component={ObservationCategory} />
-          <Stack.Screen name="BodyPosition" component={BodyPosition} />
-          <Stack.Screen name="EnvironmentalIssue" component={EnvironmentalIssue} />
-          <Stack.Screen name="Health" component={Health} />
-          <Stack.Screen name="ProceduresandStandards" component={ProcedureandStandars} />
-          <Stack.Screen name="ToolsandEquipment" component={ToolsandEquipment} />
-          <Stack.Screen name="QualityRelated" component={QualityRelated} />
-          <Stack.Screen name="UseofPPE" component={UseofPPE} />
-          <Stack.Screen name="WorkingConditions" component={WorkingConditions} />
-          <Stack.Screen name="Submit" component={Submit} />
+          <Stack.Screen options={{headerLeft:null}} name="ObservationType" component={ObservationType} />
+          <Stack.Screen options={{headerLeft:null}} name="ObservationCategory" component={ObservationCategory} />
+          <Stack.Screen options={{headerLeft:null}} name="BodyPosition" component={BodyPosition} />
+          <Stack.Screen options={{headerLeft:null}} name="EnvironmentalIssue" component={EnvironmentalIssue} />
+          <Stack.Screen options={{headerLeft:null}} name="Health" component={Health} />
+          <Stack.Screen options={{headerLeft:null}} name="ProceduresandStandards" component={ProcedureandStandars} />
+          <Stack.Screen options={{headerLeft:null}} name="ToolsandEquipment" component={ToolsandEquipment} />
+          <Stack.Screen options={{headerLeft:null}} name="QualityRelated" component={QualityRelated} />
+          <Stack.Screen options={{headerLeft:null}} name="UseofPPE" component={UseofPPE} />
+          <Stack.Screen options={{headerLeft:null}} name="WorkingConditions" component={WorkingConditions} />
+          <Stack.Screen options={{headerLeft:null}} name="Submit" component={Submit} />
 
 
 

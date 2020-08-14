@@ -39,7 +39,7 @@ class UseofPPE extends React.Component {
     <SafeAreaView style={styles.container}>
       <ScrollView>
       <View style={styles.scrollView}>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Clothing}
@@ -50,7 +50,7 @@ class UseofPPE extends React.Component {
          Clothing
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Body}
@@ -61,7 +61,7 @@ class UseofPPE extends React.Component {
          Body
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Eye}
@@ -72,7 +72,7 @@ class UseofPPE extends React.Component {
          Eye
          </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Face}
@@ -83,7 +83,7 @@ class UseofPPE extends React.Component {
          Face
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Fall}
@@ -94,7 +94,7 @@ class UseofPPE extends React.Component {
          Fall
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Foot}
@@ -105,7 +105,7 @@ class UseofPPE extends React.Component {
          Foot
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Hand}
@@ -116,7 +116,7 @@ class UseofPPE extends React.Component {
          Hand
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Head}
           onValueChange={(value) => {
@@ -126,7 +126,7 @@ class UseofPPE extends React.Component {
          Head
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Hearing}
           onValueChange={(value) => {
@@ -136,7 +136,7 @@ class UseofPPE extends React.Component {
          Hearing
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Respiratory}
           onValueChange={(value) => {
@@ -146,7 +146,7 @@ class UseofPPE extends React.Component {
          Respiratory
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.MulitpleHead}
           onValueChange={(value) => {
@@ -156,7 +156,7 @@ class UseofPPE extends React.Component {
          Mulitple - Head
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.MulitpleTorso}
           onValueChange={(value) => {
@@ -167,7 +167,7 @@ class UseofPPE extends React.Component {
          Multiple - Torso
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.MultipleLegsFeet}
           onValueChange={(value) => {
@@ -182,12 +182,20 @@ class UseofPPE extends React.Component {
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
         </View>
-        <View style={{marginTop:scale(15)}}>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        <View style={{marginTop:scale(15), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(241),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
+        <View style={{marginTop:scale(60), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.resetForm()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(135),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>RESET FORM</Text></TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
+}
+
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
 }
 
 storeAndNavigate(){

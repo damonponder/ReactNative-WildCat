@@ -33,7 +33,7 @@ import {scale} from '../../util/functions'
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.ColdTemps}
@@ -44,7 +44,7 @@ import {scale} from '../../util/functions'
          Cold Temps
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.HotTemps}
@@ -55,7 +55,7 @@ import {scale} from '../../util/functions'
          Hot Temps
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Ingestion}
@@ -66,7 +66,7 @@ import {scale} from '../../util/functions'
          Fatigue
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Ingestion}
@@ -77,7 +77,7 @@ import {scale} from '../../util/functions'
          Ingestion
          </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Inhalation}
@@ -88,7 +88,7 @@ import {scale} from '../../util/functions'
          Inhalation
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Noise}
@@ -99,7 +99,7 @@ import {scale} from '../../util/functions'
          Noise
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Radiation}
@@ -110,7 +110,7 @@ import {scale} from '../../util/functions'
          Radiation
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.SkinContact}
@@ -121,11 +121,7 @@ import {scale} from '../../util/functions'
         Skin Contact
         </Text>
         </View>
-        <View style={{alignItems:'center'}}>
-        <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
-        </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
-        
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Illness}
           onValueChange={(value) => {
@@ -135,12 +131,23 @@ import {scale} from '../../util/functions'
          Illness
         </Text>
         </View>
-        <View style={{marginTop:scale(15)}}>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        <View style={{alignItems:'center'}}>
+        <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
+        </View>
+        <View style={{marginTop:scale(15), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(245),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
+        <View style={{marginTop:scale(60), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.resetForm()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(135),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>RESET FORM</Text></TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
+}
+
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
 }
 
 storeAndNavigate(){

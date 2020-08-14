@@ -50,7 +50,7 @@ class QualityRelatedCategories extends React.Component {
          Customer Satisfaction
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Design}
@@ -61,7 +61,7 @@ class QualityRelatedCategories extends React.Component {
          Design
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Drafting}
@@ -72,7 +72,7 @@ class QualityRelatedCategories extends React.Component {
          Drafting
          </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Engineering}
@@ -83,7 +83,7 @@ class QualityRelatedCategories extends React.Component {
          Engineering
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.EquipOperation}
@@ -94,7 +94,7 @@ class QualityRelatedCategories extends React.Component {
          Equipment Operation
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.FieldCommision}
@@ -105,7 +105,7 @@ class QualityRelatedCategories extends React.Component {
          Field Commission
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Manufacturing}
@@ -116,7 +116,7 @@ class QualityRelatedCategories extends React.Component {
          Manufacturing
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.OnTimeDelivery}
@@ -127,7 +127,7 @@ class QualityRelatedCategories extends React.Component {
          On Time Delivery
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
 
         <CheckBox
         value={this.state.ProcessandSystem}
@@ -138,7 +138,7 @@ class QualityRelatedCategories extends React.Component {
          Process and System
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Sales}
@@ -149,7 +149,7 @@ class QualityRelatedCategories extends React.Component {
          Sales
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Specifications}
@@ -160,7 +160,7 @@ class QualityRelatedCategories extends React.Component {
          Specifications
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Supplier}
@@ -171,7 +171,7 @@ class QualityRelatedCategories extends React.Component {
          Supplier
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Vender}
@@ -182,7 +182,7 @@ class QualityRelatedCategories extends React.Component {
          Vender
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.TestRun}
@@ -196,12 +196,20 @@ class QualityRelatedCategories extends React.Component {
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
         </View>
-        <View style={{marginTop:scale(15)}}>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        <View style={{marginTop:scale(15), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(241),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
+        <View style={{marginTop:scale(60), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.resetForm()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(135),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>RESET FORM</Text></TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
+}
+
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
 }
 
 storeAndNavigate(){

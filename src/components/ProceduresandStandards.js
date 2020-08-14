@@ -43,7 +43,7 @@ class ProcedureandStandards extends React.Component {
          Adequate
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.NotAdequate}
@@ -54,7 +54,7 @@ class ProcedureandStandards extends React.Component {
          Not Adequate
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         
         <CheckBox
         value={this.state.Followed}
@@ -65,7 +65,7 @@ class ProcedureandStandards extends React.Component {
          Followed
          </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.NotFollowed}
@@ -76,7 +76,7 @@ class ProcedureandStandards extends React.Component {
          Not Followed
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Known}
@@ -87,7 +87,7 @@ class ProcedureandStandards extends React.Component {
          Known
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.NotKnown}
@@ -98,7 +98,7 @@ class ProcedureandStandards extends React.Component {
          Not Known
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.NotinPlace}
@@ -112,12 +112,20 @@ class ProcedureandStandards extends React.Component {
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(40), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
         </View>
-        <View style={{marginTop:scale(15)}}>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        <View style={{marginTop:scale(15), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(241),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM USER INFO</Text></TouchableOpacity>
+        </View>
+        <View style={{marginTop:scale(60), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.resetForm()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(135),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>RESET FORM</Text></TouchableOpacity>
         </View>
        </ScrollView>
     </SafeAreaView>
   );
+}
+
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
 }
 
 storeAndNavigate(){

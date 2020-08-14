@@ -32,7 +32,7 @@ handleSubmit = () => {
 
     axios
       .post(
-        'http://52.14.115.8/api/auth/observables',
+        'http://3.129.246.176:8080/api/auth/observables',
   
         {
           submittedBy: this.props.formData.form.submittedBy ? this.props.formData.form.submittedBy : "",
@@ -91,13 +91,13 @@ handleSubmit = () => {
         <View style={{alignItems:'center', fontSize:20, marginTop:50}}>
         <Text style={{fontSize: scale(16), fontWeight:'bold'}}>Please Verify your Final Submital of this Form</Text>
         </View>
-        <View style={{alignItem:'center', marginTop:scale(100)}}>
-        <TouchableOpacity onPress={this.handleSubmit} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM</Text></TouchableOpacity>
+        <View style={{alignItems:'center', marginTop:scale(100)}}>
+        <TouchableOpacity onPress={this.handleSubmit} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(206),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>SUBMIT FORM</Text></TouchableOpacity>
         </View>
         </ScrollView>
     </SafeAreaView>
-    <View style={{backgroundColor:'white'}}>
-    <Image style={{width:scale(270), height:scale(200), backgroundColor:'white',marginLeft:scale(75), marginBottom: scale(20)}} source={WOTLOGO}/>
+    <View style={{backgroundColor:'white', alignItems:'center'}}>
+    <Image style={{width:scale(270), height:scale(200), backgroundColor:'white', marginBottom: scale(20)}} source={WOTLOGO}/>
   </View>
   </Fragment>
   );

@@ -132,8 +132,10 @@ import { ScreenStackHeaderCenterView } from 'react-native-screens';
         
         onChangeText={(responsibleSupervisor) => this.setState({responsibleSupervisor: responsibleSupervisor})}></TextInput>
         <View style={styles.submitButton}>
-        <Text style={{fontSize: scale(16), textAlign: 'center'}}>To Proceed to the next Screen</Text>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(200),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Submit Form User Info</Text></TouchableOpacity>
+        <Text style={{fontSize: scale(16), fontWeight:"bold" , textAlign: 'center'}}>To Proceed to the next Screen</Text>
+        <View style={{alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(208),alignItems:'center',backgroundColor:'black',padding:scale(5),marginTop:scale(15)}}><Text style={{color:'#FEE53B',fontSize:20}}>Submit Form User Info</Text></TouchableOpacity>
+        </View>
         </View>
     </View>
   );

@@ -42,7 +42,7 @@ import {scale} from '../../util/functions'
       <ScrollView style={styles.scrollView}>
       
        
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.AscendingDescinding}
           onValueChange={(value) => {
@@ -54,7 +54,7 @@ import {scale} from '../../util/functions'
         </View>
 
        
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Bending}
           onValueChange={(value) => {
@@ -64,7 +64,7 @@ import {scale} from '../../util/functions'
          Bending
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
         <CheckBox
         value={this.state.Carrying}
           onValueChange={(value) => {
@@ -74,7 +74,7 @@ import {scale} from '../../util/functions'
          Carrying
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Carrying}
@@ -85,7 +85,7 @@ import {scale} from '../../util/functions'
          Eyes on Task/Hands
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.EyesOnTask}
@@ -96,7 +96,7 @@ import {scale} from '../../util/functions'
          Force
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Force}
@@ -107,7 +107,7 @@ import {scale} from '../../util/functions'
          Grip
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
           
         <CheckBox
         value={this.state.Grip}
@@ -118,7 +118,7 @@ import {scale} from '../../util/functions'
          Lifting 
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Lifting}
@@ -129,7 +129,7 @@ import {scale} from '../../util/functions'
          Line of Fire
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.LineOfFire}
@@ -140,7 +140,7 @@ import {scale} from '../../util/functions'
          Pinch Points
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.PinchPoints}
@@ -151,7 +151,7 @@ import {scale} from '../../util/functions'
          Posture
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Posture}
@@ -162,7 +162,7 @@ import {scale} from '../../util/functions'
          Pulling/Pushing
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.PullingPushing}
@@ -173,7 +173,7 @@ import {scale} from '../../util/functions'
          Repetitive Motion
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Repetitive}
@@ -184,7 +184,7 @@ import {scale} from '../../util/functions'
          Stooping
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Stooping}
@@ -195,7 +195,7 @@ import {scale} from '../../util/functions'
          Twisting
         </Text>
         </View>
-        <View style={{flex:scale(1),flexDirection:'row'}}>
+        <View style={{flex: 1,flexDirection:'row'}}>
            
         <CheckBox
         value={this.state.Twisting}
@@ -209,10 +209,19 @@ import {scale} from '../../util/functions'
        <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(25), fontWeight:'bold', fontSize:scale(16)}}>To Proceed to the next Screen</Text>
         </View>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scael(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
+        <View style={{alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(208),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
+        </View>
+        <View style={{marginTop:scale(60), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.resetForm()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(135),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>RESET FORM</Text></TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
+}
+resetForm(){
+  this.props.actions.clearForm();
+  this.props.navigation.navigate('Dashboard')
 }
 
 storeAndNavigate(){

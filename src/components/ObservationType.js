@@ -56,8 +56,8 @@ import {scale} from '../../util/functions'
         <View style={{alignItems:'center'}}>
         <Text style={{marginTop:scale(40), fontSize:scale(16), fontWeight:'bold'}}>To Proceed to the next Screen</Text>
         </View>
-        <View style={{marginTop:scale(15)}}>
-        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(350),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
+        <View style={{marginTop:scale(15), alignItems:'center'}}>
+        <TouchableOpacity onPress={() => {this.storeAndNavigate()}} style={{borderRadius:scale(10),borderWidth:scale(1),borderColor:'black',width:scale(241),alignItems:'center',backgroundColor:'black',padding:scale(5)}}><Text style={{color:'#FEE53B',fontSize:scale(20)}}>Submit Form User Info</Text></TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

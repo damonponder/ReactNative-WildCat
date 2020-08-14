@@ -29,7 +29,7 @@ handleSignUp = () => {
 
   axios
     .post(
-      'http://52.14.115.8/api/auth/signup',
+      'http://3.129.246.176:8080/api/auth/signup',
 
       {
         firstname: this.state.firstname,
