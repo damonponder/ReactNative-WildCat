@@ -4,10 +4,9 @@ import * as formActions from '../redux/form/action';
 import {connect} from 'react-redux';
 import { StyleSheet, Text, TextInput, SafeAreaView, ScrollView, Image, Button, Alert, View } from 'react-native';
 import {WOTLOGO} from '../../Images/logoIndex'
-import axios from 'axios';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
-import instance from './Axios/axios';
+import instance from '../Axios/axios';
 
 
 

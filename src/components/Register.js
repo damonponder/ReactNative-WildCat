@@ -1,9 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
-import instance from './Axios/axios';
+import instance from '../Axios/axios';
 
 
 

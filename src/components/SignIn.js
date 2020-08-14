@@ -1,13 +1,12 @@
 import React, {Fragment} from 'react';
 import {View, Text, TextInput, Button,Image, StyleSheet} from 'react-native';
-import axios from 'axios';
 import {bindActionCreators} from 'redux';
 import * as jwtActions from '../redux/jwt/actions';
 import {connect} from 'react-redux';
 import {WOTLOGO} from '../../Images/logoIndex'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {scale} from '../../util/functions'
-import instance from '../../Axios/axios';
+import instance from '../Axios/axios';
 
 
 
